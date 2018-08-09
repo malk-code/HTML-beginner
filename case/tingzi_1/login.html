@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>现化大酒店</title>
+		<link rel="stylesheet" type="text/css" href="./login.css" />
+	</head>
+
+	<body>
+		<div class="main">
+			<div class="inputInfo">
+				<!--需要使用相对的路径-->
+				<img src="./img/mobile.png" />
+				<input type="number" maxlength="11" placeholder="手机号" />
+			</div>
+			<div class="inputInfo">
+				<!--需要使用相对的路径-->
+				<img src="./img/minus.png" />
+				<input type="number" placeholder="验证码" />
+				<span onclick="getVerificationCode()">获取验证码</span>
+			</div>
+			<button onclick="clickSureBtn()">确定</button>
+		</div>
+		<script src="./login.js"></script>
+	</body>
+
+</html>
