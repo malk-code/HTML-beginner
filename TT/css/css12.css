@@ -1,0 +1,21 @@
+[title=runoob]
+{
+	border:5px solid green;
+	background: orange;
+}
+
+[title~=txt]
+{
+	background: red;
+	color: white;
+	text-indent: 10px;
+	padding: 10px;
+}
+
+[lang|=en]
+{
+	background: olive;
+	color: white;
+	padding-left: 4px;
+	font-size: 12px;
+}

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var txt = "Hello World!";
+			document.write("<p>" + txt.length + "</p>");
+			var txt="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			document.write("<p>" + txt.length.constructor + "</p>");	
+		</script>
+		
+		<button style="font-size: 2em;" onclick="remainder()">取模</button> <span id="remainder">999</span><br /><br />
+		<button style="font-size: 1.2em;" onclick="websqlOpenDB()">webSql</button> <span id="webSql">sql</span> <br />
+		<button style="font-size: 1.2em;" onclick="forOf()">ES6 for-of</button> <br />
+		<button style="font-size: 1.2em;" onclick="circulation()">Circulation</button> <br />
+
+		<script>
+			function remainder() {
+				document.getElementById('remainder').innerHTML %= 10
+			}
+			
+			/**
+			 * 打开数据库
+			 * @returns  dataBase:打开成功   null:打开失败
+			 */
+			function websqlOpenDB() {
+			    /*数据库有就打开 没有就创建*/
+			   var dataBase = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+
+			    if (dataBase) {
+			        	document.getElementById('webSql').innerHTML = ("数据库创建/打开成功!");
+			    } else{
+			    		document.getElementById('webSql').innerHTML = ("数据库创建/打开失败！");
+			    }
+			    return dataBase;
+			}
+			
+			function forOf() {
+				/*
+				Js 中为数组提供了多种遍历方式：for循环得到下标
+				in: 每遍历一次数组指针向后移动一位, 并得到当前数组元素值的下标, 可以通过 ary[key] 来访问数组元素值：forin也是得到下标，字典则得到KEY
+				of: 每遍历一次数组指针向后移动一位, 并得到当前数组元素的值, 处理二维数组时极为方便：forof得到其值，类似循环iOS中字典的allVaues属性集合
+				*/
+				
+				// ES6
+				let iterableT = [10, 20, 30];
+				
+				console.log('for-in');
+				
+				for (let value in iterableT) {
+				  console.log(value);
+				}
+				
+				console.log('for-of');
+				
+				for (let value of iterableT) {
+				  console.log(value);
+				}
+				
+				let iterable = new Map([["a", 1], ["b", 2], ["c", 3]]);
+
+				for (let [key, value] of iterable) {
+				  console.log(key + " - " + value);
+				}
+				// 1
+				// 2
+				// 3
+				
+				for (let entry of iterable) {
+				  console.log(entry);
+				}
+				// [a, 1]
+				// [b, 2]
+				// [c, 3]
+				
+				// forEach(function)方法接受一个函数作为参数, 该函数拥有两个参数, 分别为数组的值、键, 无返回值
+				console.log('forEach');
+
+				iterable.forEach((value, key) => {
+					console.log(key, value); // 0 a  1 b  2 c
+				});
+				
+				var ret = "";
+				
+				ret = iterable.forEach(function (value, key) {
+					console.log(key, value); // 0 a  1 b  2 c
+				});
+				
+				console.log("return: " + ret);  // undefined
+				
+				// map(function)：方法接受一个函数作为参数, 该函数拥有两个参数, 分别为数组的值、键。可有返回值，每次迭代时返回的值会被map方法组装成一个新数组作为返回值返回
+
+				console.log('map');
+				
+				ret = iterableT.map((value1, key1) => {
+					return key1 + "-" + value1; 
+				});
+				console.log(ret);
+			}
+			
+			function circulation() {
+				let arr = [1, 2, 3, 4, 5, 6, 7];
+				
+				// 跳出外部循环
+//			    curBreak:
+
+				// 类似于oc中的goto语法：最大的好处就是在循环内的if内可以中断跳出外部的循环
+				for (var i = 0; i < arr.length; i++) tab: {
+					curBreak:
+					if (i == 1) {
+						console.log("内部跳出");
+						break curBreak;
+					}
+		
+					if (i == 5) {
+						console.log("标签跳出");
+						break tab;
+					}
+		
+					if (i == 3) {
+						console.log('循环continue前 ' + i);
+						continue;
+					}
+					console.log('循环continue后 ' + i);
+				}
+				console.log(arr[10]);
+			}
+		</script>
+		
+				<script>
+			// js集合可设置length，小于当前长度时会删除设置长度后的元素，通过下标赋值下标可以不为已存在的下标，如通过其length值为下标赋值，则是在集合末尾追加元素：注意若设置下标超过其length，集合有值（js是支持的），但v-for不识别集合
+			let arr = [{pro: "pro1"}, {pro: "pro2"}, {pro: "pro3"}, {pro: "pro4"}];
+			arr[arr.length] = {pro: "add"};
+			arr[arr.length + 10] = {pro: "test"};
+			for (let i in arr) {
+				console.log(i + " - " + arr[i].pro);
+			}
+		</script>
+	
+		<p> typeof 操作符返回变量或表达式的类型。</p>
+		<p id="demo"></p>
+		<script>
+		document.getElementById("demo").innerHTML = 
+			typeof "john" + "<br>" + 
+			typeof 3.14 + "<br>" +
+			typeof false + "<br>" +
+			typeof [1,2,3,4] + "<br>" +
+			typeof {name:'john', age:34};
+			
+			function str() {
+				// 33.Bool转字符串后的值为true/false；特别注意：字符串转Bool，仅当字符串length为0时才会为false：0，null，undefined，空格，只要含有长度转为Bool均为true
+				document.getElementById('str').innerHTML = Boolean("0") + " " + false.toString() + " " + Boolean('');
+			}
+			
+			function fundate() {
+				document.getElementById('fdate').innerHTML = new Date().getDate() + "日 "  + "周" + new Date().getDay() + " " + new Date().getSeconds() + "秒"
+			}
+			
+			function protoType() {
+				var d = new Date();
+				d.myMet(); 
+				var monthname = d.myProp; 
+				document.getElementById('protoType').innerHTML =monthname;
+			}
+		</script>
+					
+		<button style="font-size: 1.2em;" onclick="str()" id="str">Bool转字符串</button> <br />
+		<button style="font-size: 1.2em;" onclick="fundate()" id="fdate">date</button> <br />
+		
+		<p>形如iOS类目，通过prototype可以向对象添加属性和方法。</p>
+		<button style="font-size: 1.2em;" onclick="protoType()" id="protoType">protoType</button> <br />
+
+		<script>
+			Date.prototype.myMet=function() {
+				if (this.getMonth()==0){this.myProp="January"};
+				if (this.getMonth()==1){this.myProp="February"};
+				if (this.getMonth()==2){this.myProp="March"};
+				if (this.getMonth()==3){this.myProp="April"};
+				if (this.getMonth()==4){this.myProp="May"};
+				if (this.getMonth()==5){this.myProp="June"};
+				if (this.getMonth()==6){this.myProp="July"};
+				if (this.getMonth()==7){this.myProp="August"};
+				if (this.getMonth()==8){this.myProp="Spetember"};
+				if (this.getMonth()==9){this.myProp="October"};
+				if (this.getMonth()==10){this.myProp="November"};
+				if (this.getMonth()==11){this.myProp="December"};
+			} 
+		</script>
+		
+		<hr />
+		<button style="font-size: 1.2em;" onclick="dateToNum()" id="dateToNum">dateToNum</button> <br />
+		<script>
+			function dateToNum() {
+				// 时间戳
+//				document.getElementById('dateToNum').innerHTML = Number(new Date());
+				document.getElementById('dateToNum').innerHTML = new Date().getTime();
+			}
+		</script>
+		
+		<h4>正则：</h4>
+		
+		<span id="regEx1">regEx</span>&nbsp;&nbsp;<button onclick="regEx1()">verify</button><br />
+		<span id="regEx2">regEx</span>&nbsp;&nbsp;<button onclick="regEx2()">verify</button><br />
+		<span id="regEx3">regEx</span>&nbsp;&nbsp;<button onclick="regEx3()">verify</button><br />
+		<span id="regEx4">regEx</span>&nbsp;&nbsp;<button onclick="regEx4()">verify</button><br />
+
+		<script> 
+			function regEx1() {
+				var str = "Visit Runoob!"; 
+			    var n = str.search("Runoob");
+			    document.getElementById("regEx1").innerHTML = n;
+//			    n = str.search(/runoob/i);
+			}
+			
+			function regEx2() {
+				 document.getElementById("regEx2").innerHTML = /e/.test("The best things in life are free!") 
+			}
+
+			function regEx3() {
+				 document.getElementById("regEx3").innerHTML = (/e/.exec("The best things in life are free!")).length;
+			}
+			
+			function regEx4() {
+				 document.getElementById("regEx4").innerHTML = "The best things in life are free! eee e".match(/e/g);
+			}
+		</script><br />
+		
+		<h4>debugger: </h4>
+		<button onclick="debugger1()">debugger</button><br />
+
+		<script>
+			function debugger1() {
+				
+//				45.JavaScript 严格模式(strict mode)不允许使用未声明的变量。使用变量前变量未声明（var x）也未赋值（x = 5），也没有初始化（var x = 5），则变量为undefined。
+
+				"use strict";
+				x = 3.14;       // 报错 (x 未定义)
+				
+				console.log('debugger start');
+				debugger;
+				console.log('debugger end');
+			}
+		</script>
+		
+		<br />
+		<a href="http://www.runoob.com/js/js-strict.html">严格模式</a>
+		
+		<hr />
+		
+		<span id="up1">变量提升</span>&nbsp;&nbsp;<button onclick="up1()">声明和使用</button><br /><br />
+		<button onclick="cir1()" id="cir1">程序块作用域</button><br />
+		
+		<script>
+			function up1() {
+				x = 5; // 变量 x 设置为 5
+				elem = document.getElementById("up1"); // 查找元素 
+				elem.innerHTML = x;                     // 在元素中显示 x
+				var x; // 声明 x
+			}
+			
+			function cir1() {
+				
+//				在每个代码块中 JavaScript 不会创建一个新的作用域，一般各个代码块的作用域都是全局的。
+
+				for (var i = 0; i < 10; i++) {
+				    // some code
+				}
+				
+				document.getElementById('cir1').innerHTML = i;
+				
+				return i;
+			}
+		</script>
+	</body>
+	
+	<script src="../../../Vue/Sample/frame/logmonitor.js"></script>
+  	<script>var vconsole = new VConsole();</script>
+</html>

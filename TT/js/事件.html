@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件</title>
+	</head>
+	<body>
+		<p id="time">Time</p>
+		<button onclick="document.getElementById('time').innerHTML = Date()">更新时间</button> <br /><br />
+		<button onclick="this.innerHTML=Date()">现在的时间是?</button> <br /><br />
+
+		<button onmousemove="this.innerHTML=Date()" onmouseleave="this.innerHTML='now time'">现在的时间是?</button></b> <br /><br />
+		
+		<hr />
+		<b id="demo" onclick="this.innerHTML='监听剪切板事件'">监听剪切板事件</b><br /><br />
+		
+		<input type="text" oncopy="document.getElementById('demo').innerHTML=Date()" value="copy">copy</input> <br /><br />
+		<input type="text" onpaste="document.getElementById('demo').innerHTML=Date()" value="paste">paste</input> <br /><br />
+		<input type="text" oncut="document.getElementById('demo').innerHTML=Date()" value="cut">cut</input> <br /><br />
+		
+		<hr />
+		<a id="myAnchor" href="https://www.xamarin.com" onclick="">Xamarin</a>
+		<button id="link" onclick="modify()">修改myAnchor</button>
+		<script>
+			function modify() {
+				document.getElementById('myAnchor').innerHTML = "Runoob";
+				document.getElementById('myAnchor').href = "http://www.runoob.com/jsref/dom-obj-anchor.html";
+
+				// 在 HTML 文档中 <a> 标签每出现一次，就会创建 Anchor 对象。
+				console.log('11');
+				console.log(document.anchors.length) // 0
+			}
+			
+			/*数据库有就打开 没有就创建*/
+			function websqlOpenDB() {
+				
+				var dataBase = window.closed(dbname, version, dbdesc, dbsize,function() {});
+				
+			    if (dataBase) {
+			        	document.getElementById('webSql').innerHTML = "数据库创建/打开成功！";
+			    } else{
+			        	document.getElementById('webSql').innerHTML = "数据库创建/打开失败！";
+			    }
+//			    return dataBase;
+			}
+		</script>
+		<input type="file" accept="video/*;capture=camcorder">
+		<input type="file" accept="audio/*;capture=microphone"> 
+		<input type="file" accept="image/*;capture=camera"> 
+		
+		<button id="demo11" onclick="document.getElementById('demo11').innerHTML = typeof(micro())">micro</button>
+		<script>
+			function ()micro {
+				unction hasGetUserMedia() {
+				// 请注意:在Opera浏览器中不使用前缀
+				return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+				navigator.mozGetUserMedia || navigator.msGetUserMedia);
+				}
+				if (hasGetUserMedia()) {
+				alert('您的浏览器支持getUserMedia方法');
+				}
+				else {
+				alert('您的浏览器不支持getUserMedia方法');
+				} 
+			}
+		</script>
+	</body>
+</html>

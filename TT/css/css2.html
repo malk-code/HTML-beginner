@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css2</title>
+<!--嵌套CSS-->
+		<style>
+			p {
+  				color:red;
+  				background: lightblue;
+			}
+			div p{
+  				color:yellow;
+  				background: olivedrab;
+			}
+			#line {
+				color: black;
+				font: 30px;
+			}
+		</style>
+		
+		<!--样式表优先级：内联样式）Inline style > （内部样式）Internal style sheet >（外部样式）External style sheet > 浏览器默认样式
+			如果外部样式放在内部样式的后面，则外部样式将覆盖内部样式：行内样式 > 外部样式 > 外部样式（相同的部分会被替换）-->
+		<link rel="stylesheet" href="css2.css" />
+	</head>
+	<body>
+		<p>red text</p><!--文字是红色的-->
+		<div>
+  			<p>yellow text</p><!--文字是黄色的-->
+		</div>
+		<hr id="line" />
+		<div id="line" style="font-size: 18px;">line</div>
+		
+		<!--当text-align设置为"justify"，每一行被展开为宽度相等，左，右外边距是对齐（如杂志和报纸）。-->
+		<p class="just" style="white-space: normal; text-indent: 30px; line-height: 130%;">“当我年轻的时候，我梦想改变这个世界；当我成熟以后，我发现我不能够改变这个世界，我将目光缩短了些，决定只改变我的国家；当我进入暮年以后，我发现我不能够改变我们的国家，我的最后愿望仅仅是改变一下我的家庭，但是，这也不可能。当我现在躺在床上，行将就木时，我突然意识到：如果一开始我仅仅去改变我自己，然后，我可能改变我的家庭；在家人的帮助和鼓励下，我可能为国家做一些事情；然后，谁知道呢?我甚至可能改变这个世界。”</p>
+
+		<hr />
+		<h5 style="text-decoration: line-through; letter-spacing: 4px;">文本修饰</h5>
+		<h5 style="text-transform: uppercase; word-spacing: 4px;">文本转换 this is letter</h5>
+		<h5 style="text-indent: 20px; direction: rtl; text-shadow: 2px 2px #FFA500;">文本缩进</h5>
+	    <p style="white-space: nowrap; direction: rtl;">禁止文字环绕。禁止文字环绕。禁止文字环绕。禁止文字环绕。</p>
+		<br />
+		<a href="http://www.runoob.com/css/css-text.html" style="color: olivedrab;">text feature</a>
+	</body>
+</html>

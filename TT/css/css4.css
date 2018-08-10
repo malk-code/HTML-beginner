@@ -1,0 +1,94 @@
+div.Border1 {
+	border-style: groove;
+	border-bottom-color: red;
+	border-width: 1px;
+	border-top-style: none;
+	border-left-style: none;
+	border-right-style: none;
+}
+div.Border2 {
+	background: cyan;
+	color: white;
+	border-style: outset;
+	border-width: 1px;
+	border-left-width: 10px;
+	text-indent: 4px;
+	border-left-color: blue;
+}
+div.Border3 {
+	border-style: inset;
+	border-width: 1px;
+	border-bottom-left-radius: calc(10px);
+	border-bottom-right-radius: calc(10px);
+	border-top-left-radius: calc(10px);
+	border-top-right-radius: calc(10px);
+	padding: 5px;
+}
+div.Border4 {
+	border: 3px dotted red;
+	padding: 5px;
+	border-bottom-style: double;
+	
+	padding-left: 30px;
+}
+
+body {
+	outline: dotted;
+	outline-width: 1px;
+	padding: 30px;
+	outline-color: orchid;
+	
+	width: 300px;
+	height: 100%;
+	
+	margin: 10px, -125px 10px 15px;
+}
+
+p {
+	background: olivedrab;
+	text-align: center;
+}
+.corlor1 {
+	background: red;
+	text-align: start;
+	padding-left: 20px;
+}
+.corlor1 p {
+	color: white;
+}
+
+/*切记不能直接设置标签的样式：这会直接导致该css下设置的标签被统一，添加自定义将无效*/
+img.img1 {
+	width: 200px;
+	height: 200px;
+	
+	position: absolute;
+	clip: rect(0px, 100px, 300px, 0px);
+	
+	padding: 0px 0px 100px 0px;
+}
+article {
+	background: cadetblue; max-height: 50px; font-size: 14px; text-align: justify; white-space: normal; text-indent: 30px; line-height: 130%;
+	
+		overflow:auto;
+		padding: 10px;
+}
+	
+.centerDiv {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    
+    font-size: 14px;
+}
+
+.centerImg {
+	
+	display: block;
+	width: 40%;
+	margin: auto;
+	height: 30px;
+	padding: 20px;
+}
+

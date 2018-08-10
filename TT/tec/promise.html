@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+		<title>promise</title>
+	</head>
+	<body>
+		<button onclick="promiseclick()">promise</button>
+		<button onclick="promiseinject()">promise inject</button>
+
+		<script type="text/javascript">
+			
+			//这个方法，我们说她返回了一个promise
+			//但实际上，我们期待的是一个userInfo对象
+			//无奈该函数是异步的，无法立刻返回userInfo对象
+			//所以返回了一个Promise作为“承诺”
+			var getUserInfo = function() {
+			    return new Promise(function(resolve) {
+			        setTimeout(function() {
+			            var user = {name: 'Hanmeimei', age: 31};
+			            resolve(user);
+			        }, 3000);
+			    });
+			};
+			
+			var getUserInfoinject = function() {
+			    return new Promise(function(resolve, inject) {
+			        setTimeout(function() {
+			            inject('inject');
+			        }, 3000);
+			    });
+			};
+			
+			function promiseclick() {
+				
+				console.log('func');
+				
+				console.log(typeof(Promise));
+
+				var user = getUserInfo();//获取返回值
+			
+				//通过这个方法我们就能看出返回值是个Promise
+				console.log(Object.prototype.toString.apply(user));//[object Promise]
+				
+				//那如何才能拿到真正的userInfo对象呢？
+				//下面代码就可以
+				user.then(function(userInfo) {    
+			        //之所以这里拿到了userInfo，那是因为上面我们在3秒之后
+			        //resolve了真正的userInfo对象
+			        console.log(userInfo);//{ name: 'Hanmeimei', age: 31 }
+				});
+			}
+			
+			function promiseinject() {
+				
+				console.log('invoke inject')
+				
+				let inject = getUserInfoinject();
+				
+				inject.then((info) => {
+					
+					console.log(info);
+				}, (error) => {
+					console.log(error);
+				})
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title>prototype</title>
+		<style type="text/css">
+			h4 {
+				padding-top: 10px;
+			}
+			
+			body {
+				padding: 0px 10px;
+			}
+		</style>
+		<script type="text/javascript">
+		</script>
+	</head>
+
+	<body>
+		<main>
+			<h4>prototype sample</h4>
+			<button onclick="whatIsPrototype(0)">prototype object</button><br />
+			<button onclick="whatIsPrototype(1)">function prototype</button><br />
+			<button onclick="whatIsPrototype(2)">function prototype</button><br />
+			<button onclick="whatIsPrototype(3)">function prototype</button><br />
+			<button onclick="whatIsPrototype(3)">function prototype</button><br />
+			<button onclick="whatIsPrototype(4)">object prototype</button><br />
+
+			<script>
+				// 任何对象引用 prototype 都会出现 undefined：因此 prototype 不是对象的属性，而是因为 js 是基于 prototype 而不是基于对象的，
+				// prototype 让我们可以向对象添加属性和方法：prototype绝对不是给对象用的，对象根本没办法引用prototype这个属性，真正能调用 prototype 的是函数。
+				// 理解：prototype是函数的的属性，本质是函数的原型对象。prototype只能够被函数调用。js的对象和函数是两个概念，function函数可以new出object对象的。
+				// 调用：为原型新增一个get方法，get是属于func函数的一个属性函数: 属性函数必须由它的对象来调用，那么就需要用关键字new来实例化func函数的对象，来实现调用
+				// 特别指出：Array.prototype是一个数组, String.prototype是一个字符串, Object.prototype是一个对象；因为prototype是函数的的属性，此时它分别属于 Array、String、Object
+				function whatIsPrototype(type) {
+					switch(type) {
+						case 0:
+							var obj = {};
+							alert("what is prototype: " + JSON.stringify(obj.prototype));
+							break;
+						case 1:
+							function func() {};
+							alert("what is prototype: " + func.prototype);
+							break;
+						case 2:
+							function func() {};
+							func.prototype.name = 'prototype是函数的的属性，本质是函数的原型对象';
+							alert("what is prototype: " + JSON.stringify(func.prototype));
+							break;
+						case 3:
+							function func() {}
+							//给函数的属性prototype赋予一个方法get
+							func.prototype.get = function(value) {
+								return value;
+							}
+							// get是属于func函数的一个属性函数: 属性函数必须由它的对象来调用，那么我们需要用关键字new来实例化func函数的对象，来实现调用
+							var obj1 = new func();
+							alert(obj1.get('hello,prototype原型对象'));
+							break;
+						case 4:
+							//特别指出：Array.prototype是一个数组, String.prototype是一个字符串, Object.prototype是一个对象；因为prototype是函数的的属性，此时它分别属于 Array、String、Object
+							alert(JSON.stringify(Array.prototype));
+							break;
+						default:
+							break;
+					}
+				}
+			</script>
+		</main>
+	</body>
+
+</html>

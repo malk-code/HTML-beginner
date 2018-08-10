@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+		<title>css3 text</title>
+		<style>
+			h3.txt1 {
+				text-shadow: 5px 5px 5px #FF0000;
+			}
+			h3.txt2 {
+				width:300px;
+				height:100px;
+				background-color:yellow;
+				box-shadow: 10px 10px 5px #888888;				
+				text-align: center;
+				line-height: 100px;
+				padding: 15px;
+				box-sizing: content-box;
+			}
+			
+			#boxShadow {
+				position: relative;
+				box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
+				padding: 10px;
+				background-color: white;
+			}
+			#boxShadow img {
+				width: 100%;
+				border: 1px solid #8a4419;
+				border-style: inset;
+			}
+			#boxShadow::after {
+			    content: '';
+			    position: absolute;
+			    z-index: -1; /* hide shadow behind image */
+			    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+			    width: 70%;
+			    left: 15%; /* one half of the remaining 30% */
+			    height: 100px;
+			    bottom: 0;
+			}
+			
+			div.card {
+				width: 250px;
+				box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  				text-align: center;
+			}
+			div.header {
+			    background-color: #4CAF50;
+			    color: white;
+			    padding: 10px;
+			    font-size: 40px;
+			}
+			div.container {
+			    padding: 10px;
+			}
+			
+			div.polaroid {
+				width: 250px;
+ 			 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ 			 	text-align: center;
+			}
+			
+			div.trans {
+				width: 100px;
+				height: 75px;
+				background: red;
+				border: 1px solid black;
+				text-align: center;
+				line-height: 230%;
+				font-size: 12px;
+				transform: width 2s;
+				margin: 10px;
+				-webkit-transition:width 2s; /* Safari */
+			}
+			div.trans:hover {
+				width: 100%;
+			}
+			div.trans2 {
+				width: 100px;
+				height: 75px;
+				background: red;
+				border: 1px solid black;
+				text-align: center;
+				line-height: 230%;
+				font-size: 12px;
+				margin: 10px;				
+				transition: width 2s, height 2s, transform 2s;
+			}
+			div.trans2:hover {
+				width: 300px;
+   				height: 200px;
+			    -webkit-transform: rotate(360deg);  Chrome, Safari, Opera 
+			    transform: rotate(360deg);
+			}
+			div.trans3 {
+				width:100px;
+				height:100px;
+				background:red;
+				transition-property:width;
+				transition-duration:1s;
+				transition-timing-function:linear;
+				transition-delay:2s;
+				/* Safari */
+				-webkit-transition-property:width;
+				-webkit-transition-duration:1s;
+				-webkit-transition-timing-function:linear;
+				-webkit-transition-delay:2s;
+				margin: 10px;				
+			}
+			div.trans3:hover {
+				width: 400px;
+			}
+			
+			div.ani1 {
+				width: 100px;
+				height: 100px;
+				background: orange;
+				animation: animation1 2s;
+				-webkit-animation: animation1 2s;
+				margin: 10px;
+				animation-direction: reverse;
+				animation-iteration-count: infinite;
+			}
+			@keyframes animation1 {
+				from{background: red;}
+				to{background: blue;}
+			}
+			@-webkit-keyframes animation1 {
+				from{background: red;}
+				to{background: blue;}
+			}
+			
+			div.ani2
+			{
+				width:100px;
+				height:100px;
+				background:red;
+				animation:animation2 5s;
+				-moz-animation:animation2 5s; /* Firefox */
+				-webkit-animation:animation2 5s; /* Safari and Chrome */
+				-o-animation:animation2 5s; /* Opera */
+				margin: 10px;
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+			}
+			@keyframes animation2
+			{
+				0%   {background:red;}
+				25%  {background:yellow;}
+				50%  {background:blue;}
+				100% {background:green;}
+			}
+			@-moz-keyframes animation2 /* Firefox */
+			{
+				0%   {background:red;}
+				25%  {background:yellow;}
+				50%  {background:blue;}
+				100% {background:green;}
+			}
+			@-webkit-keyframes animation2 /* Safari and Chrome */
+			{
+				0%   {background:red;}
+				25%  {background:yellow;}
+				50%  {background:blue;}
+				100% {background:green;}
+			}
+			@-o-keyframes animation2 /* Opera */
+			{
+				0%   {background:red;}
+				25%  {background:yellow;}
+				50%  {background:blue;}
+				100% {background:green;}
+			}
+			
+			div.ani3
+			{
+				width:100px;
+				height:100px;
+				background:red;
+				position:relative;
+				animation-name:animation3;
+				animation-duration:5s;
+				animation-timing-function:linear;
+				animation-delay:2s;
+				animation-iteration-count:infinite;
+				animation-direction:alternate;
+				animation-play-state:running;
+				/* Safari and Chrome: */
+				-webkit-animation-name:animation3;
+				-webkit-animation-duration:5s;
+				-webkit-animation-timing-function:linear;
+				-webkit-animation-delay:2s;
+				-webkit-animation-iteration-count:infinite;
+				-webkit-animation-direction:alternate;
+				-webkit-animation-play-state:running;
+				
+				margin-bottom: 200px;
+			}
+			@keyframes animation3
+			{
+				0%   {background:red; left:0px; top:0px;}
+				25%  {background:yellow; left:200px; top:0px;}
+				50%  {background:blue; left:200px; top:200px;}
+				75%  {background:green; left:0px; top:200px;}
+				100% {background:red; left:0px; top:0px;}
+			}
+			
+			@-webkit-keyframes animation3 /* Safari and Chrome */
+			{
+				0%   {background:red; left:0px; top:0px;}
+				25%  {background:yellow; left:200px; top:0px;}
+				50%  {background:blue; left:200px; top:200px;}
+				75%  {background:green; left:0px; top:200px;}
+				100% {background:red; left:0px; top:0px;}
+			}
+		</style>
+	</head>
+	<body>
+		<h4>Text</h4>
+		<h3 class="txt1">Text-shadow effect!</h3>
+		<h3 class="txt2">shadow</h3>
+		<div id="boxShadow">
+			  <img src="../../img/rock600x400.jpg" alt="Norway" width="600" height="400">
+		</div>
+	
+		<br />
+		<hr />
+		<h4>Card</h4>
+		<div class="card">
+		  <div class="header">
+		    <h1>1</h1>
+		  </div>
+		  <div class="container">
+		    <p>January 1, 2016</p>
+		  </div>
+		</div>
+		
+		<p>box-shadow属性可以用来创建纸质样式卡片:</p>
+
+		<div class="polaroid">
+		  <img src="../../img/rock600x400.jpg" alt="Norway" style="width:100%">
+		  <div class="container">
+		    <p>Hardanger, Norway</p>
+		  </div>
+		</div>
+		
+		<br />
+		<hr />
+		<h4>Translation</h4>
+		<div class="trans">translation</div>
+		<div class="trans2">translation</div>
+		<div class="trans3">translation</div>
+		
+		<br />
+		<hr />
+		<h4>Animation</h4>
+		<h5><b>注释：</b>当动画完成时，会变回初始的样式。</h6>
+
+		<div class="ani1">translation</div>
+		<div class="ani2">translation</div>
+		<div class="ani3">translation</div>
+
+	</body>
+</html>

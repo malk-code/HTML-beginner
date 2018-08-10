@@ -1,0 +1,41 @@
+<!DOCTYPE >
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Canvas</title>
+	</head>
+	
+	<body>
+		<canvas id="myCanvas1" width="200" height="100" style="border:1px solid #3c3c3c;">
+			您的浏览器不支持 HTML5 canvas 标签。
+		</canvas>
+		
+		<script type="text/javascript">
+			var docu = document.getElementById("myCanvas1")
+			var cxt = docu.getContext("2d")
+			cxt.fillStyle = "aquamarine"
+			cxt.fillRect(10, 10, 150, 75)
+		</script>
+		<button id="button" autofocus="0"> margin </button>
+		
+		<canvas id="myCanvas2" width="200" height="100" style="border: 2px solid aquamarine;"></canvas>
+		
+		<script type="text/javascript">
+			var docu = document.getElementById("myCanvas2")
+			var ctxt = docu.getContext("2d")
+			ctxt.moveTo(0, 0)
+			ctxt.lineTo(50, 100)
+			ctxt.stroke()
+		</script>
+		
+		<script type="text/javascript">
+			var c = document.getElementById("myCanvas2")
+			var x = c.getContext("2d")
+			x.beginPath()
+			x.arc(95, 50, 40, 0, 2 * Math.PI)
+			x.stroke()
+		</script>
+		
+	</body>
+	
+</html>

@@ -1,0 +1,40 @@
+ul.nav1 {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+    width: 25%;
+    height: 100%;
+    background-color: #f1f1f1;
+    /*border: 1px solid #555;*/
+    /*border-bottom-style: none;*/
+     position: fixed;
+}
+/*li {
+	    border-bottom: 1px solid #555;
+}
+li:last-child {
+    border-bottom: none;
+}*/
+
+/*display:block - 显示块元素的链接，让整体变为可点击链接区域（不只是文本），它允许我们指定宽度*/ 
+li a {
+	display: block;
+	color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    	text-transform:uppercase;
+}
+
+/*li a:hover {
+    background-color: #555;
+    color: white;
+}*/
+
+li a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+li a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+}

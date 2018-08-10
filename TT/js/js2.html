@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js</title>
+		<script type="text/javascript" src="js2.js"></script>
+	</head>
+	<body style="overflow: auto;">
+		
+		<h3>JavaScript</h3>
+		<p id="txt" style="border: 1px solid red; width: 50%;">点击前效果</p>
+		
+		<script type="text/javascript">
+			function func1() {
+				document.getElementById("txt").innerHTML = "Hello JavaScript!";
+			}
+		</script>
+		
+		<button type="button" onclick="func1()">点我</button>
+		
+		<hr />
+		
+		<h3>js改变样式</h3>
+		<p id="p1">之前的样式</p>
+		<script type="text/javascript">
+			function func2() {
+				d = document.getElementById("p1")
+			
+				if (d.style.background == "red") {
+					
+					d.style.background = "white";
+					d.style.color = "black"
+					d.innerHTML = "之前的样式"
+				} else
+				{
+					d.style.background = "red";
+					d.style.color = "white"
+					d.innerHTML = 123e4	
+				}
+			}
+		</script>
+		<button type="button" onclick="func2()">点我</button>
+		
+		<hr />
+		<h5>实体：名称对大小写敏感，结尾有分号</h5>
+		<p>小于符号：&lt; 或 &#60; 或 &#060;</p>
+		<p>空格实体：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;空格</p>
+		<p>结合音标符: o&#768; o&#769; o&#770; o&#771;</p>
+		<p> 使用实体名而不是数字的好处是，名称易于记忆。不过坏处是，浏览器也许并不支持所有实体名称（对实体数字的支持却很好）</p>
+		
+		<div id="date" style="border-bottom-style: inset;" onclick="date1()">日期</div>
+		<script>
+			function date1(){
+				
+				var d = document.getElementById("date");
+				var txt = d.innerHTML == "日期"? Date(): "日期";
+				d.innerHTML = txt;
+			}
+		</script>
+
+		<button onclick="alertExt('外部JavaScript文件')">外部js</button>
+		
+	</body>
+</html>

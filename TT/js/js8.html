@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>alert</title>
+		<style>
+			@media only screen and (min-width: 320px) and (max-width: 1000px) {
+				button {font-size: 1.5em;}
+			}
+			
+		</style>
+	</head>
+	<body id="cookie">
+		<p id="p1">alert:</p>
+		<button onclick="warmAlert()";>alert</button><br /><br />
+		<span id="span1">text</span>
+		<button onclick="conAlert()">confirm alert</button><br /><br />
+		<span id="span2">text</span>
+		<button onclick="proAlert()">prompt alert</button>
+		
+		<script>
+			function warmAlert() {
+				var alet = alert('alert'); 
+				if (alert) {
+					document.getElementById('p1').innerHTML = '点击了alert';
+				}
+			}
+			
+			function conAlert() {
+				var sure = confirm("confirm alert");
+				document.getElementById('span1').innerHTML = '点击了' + (sure == true? "confirm": "cancel");
+			}
+			
+			function proAlert() {
+				var content = prompt('message', 'placeHolder');
+				
+				if (content != null && content.length) {
+					document.getElementById('span2').innerHTML = content;
+				}
+			}
+		</script>
+		
+		<hr />
+		<h5>Timer</h5>
+		<span id="timer1">Interval</span>&nbsp;
+		<button id="timer2" onclick="timerRepeatStart()">setInterval</button><br />		
+		<script>
+			var num = 0;
+			var timer;
+			
+			function timerRepeat() {
+				num ++;
+				document.getElementById('timer1').innerHTML = num;	
+			}
+			
+			function timerRepeatStop() {
+				
+				// 修改onclick属性，赋值方法不能带括号，只是赋值不是调用。但在标签内的onclick赋值调用需要带圆括号
+				document.getElementById('timer2').onclick = timerRepeatStart;
+				document.getElementById('timer2').innerHTML = "setInterval";
+		
+				num = 0;
+				// 清除定时对象：不是方法 - 方法可以清除？肯定是清除对象啦
+//				clearInterval(timerRepeat);
+				clearInterval(timer);
+				timer = null;
+				document.getElementById('timer1').innerHTML = num;	
+			}
+			
+			function timerRepeatStart() {				
+				document.getElementById('timer2').onclick = timerRepeatStop;
+				document.getElementById('timer2').innerHTML = "clearInterval";	
+				
+				// 定时器创建和取消需要使用同一个对象：setInterval/clearInterval，传入方法也不能到圆括号
+				timer = setInterval(timerRepeat, 1000);
+			}
+		</script>
+		
+		<span id="delay1">delay</span>&nbsp;
+		<button id="delay2" onclick="timeoutStart()">setTimeout</button>
+		<button id="delay3" onclick="timeoutBreak()">break</button>
+		<script>
+			var delay;
+			
+			function timeoutStart() {
+				document.getElementById('delay1').innerHTML = 'delay 3 seconds';
+
+				document.getElementById('delay2').innerHTML = 'clearTimeout';
+				document.getElementById('delay2').onclick = timeoutStop;
+				
+				delay = setTimeout(timeoutEnd, 3000);
+			}
+			
+			function timeoutEnd() {
+				timeoutStop();
+				document.getElementById('delay1').innerHTML = 'delay end';
+			}
+			
+			function timeoutStop() {
+				document.getElementById('delay1').innerHTML = 'delay stoped';
+				
+				document.getElementById('delay2').innerHTML = 'setTimeout';
+				document.getElementById('delay2').onclick = timeoutStart;
+				
+				clearTimeout(delay);
+				delay = null;
+			}
+			
+			function timeoutBreak() {
+				timeoutStop();
+				document.getElementById('delay1').innerHTML = 'delay break';
+			}
+		</script>
+		
+		<hr />
+		<p>ifrme</p>
+		<iframe id="ifrmeId" hidden="hidden"></iframe>
+		<button id="third" onclick="document.getElementById('ifrmeId').src='nativexuebank://open?webUrl=http://192.168.2.101:8020/TT/js/js8.html&hasNavigationBar=true'">open</button>
+		<button id="third" onclick="document.getElementById('ifrmeId').src='nativexuebank://closeWebViewController'">close</button>
+		<button id="third" onclick="document.getElementById('ifrmeId').src='nativexuebank://share?title=1&content=2'">share</button>
+		<button id="third" onclick="document.getElementById('ifrmeId').src='nativexuebank://status?color=201,30,331,1'">color</button>
+		
+		<hr />
+		<h4>cookie</h4>
+		<p>储存于Body Onload</p>
+		<script>			
+			//cookie的key；cookie过期的时间，单位秒
+			function setCookie(ckey, cvalue, exp) {
+				let d = new Date();
+				// 8小时时差已经默认计入，不需要添加
+				d.setTime(d.getTime()+exp*1000);
+				document.cookie = ckey+"="+cvalue+"; "+"expires="+d.toGMTString();
+			}
+
+			function getCookie(c_name) {
+				if (document.cookie.length>0) {
+					let c_start = document.cookie.indexOf(c_name + "=")
+				  	if (c_start!=-1) { 
+				  		c_start = c_start + c_name.length +1
+				    		let c_end = document.cookie.indexOf(";", c_start)
+				   		if (c_end==-1) c_end = document.cookie.length
+				    		return unescape(document.cookie.substring(c_start, c_end))
+				    } 
+				  }
+				return ""
+			}
+			
+			function checkCookie() {
+				let cname = getCookie('name');
+				if (cname) {
+					alert('welcome: '+cname);
+				} else
+				{
+					let place = 'input your name';
+					var iname = prompt('welcome', place);
+					// js处理prompt：取消返回nil，确认返回输入内容，若输入为空则返回占位符 - 其实js弹出框的录入框没有占位符概念的，就直接是文本
+					if (iname==null) {
+						let iscancel = alert("need input your name");
+						if (!iscancel){
+							checkCookie();
+						}
+					} else 
+					{
+						if (iname==place) {
+							let iscancel = alert('name is illegal');
+							if (!iscancel){
+								checkCookie();
+							}
+						} else 
+						{
+							setCookie('name', iname, 10);
+							alert('welcome: '+iname);
+						}
+					}
+				}
+			}
+			document.getElementById('cookie').onload = checkCookie;
+		</script>
+		
+		<hr />
+	</body>
+</html>

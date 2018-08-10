@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<title>jq1</title>
+		<title>jq1</title>
+		<style type="text/css">
+			.live {
+				color: #0086B3;
+			}
+			
+			.beauti {
+				color: #39B8FF;
+			}
+			
+			.eventDiv {
+				height: 80px;
+				border: solid 1px #0081C2;
+				margin-top: 10px;
+				border-radius: 8px;
+				text-align: center;
+				line-height: 80px;
+			}
+		</style>
+		<!--<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>-->
+		<script src="jquery-3.3.1.js"></script>
+	</head>
+
+	<body>
+		<h4>初识 jQuery</h4>
+		<p class="canHidden">如果您点击我，我会消失。</p>
+		<p class="canHidden">点击我，我会消失。</p>
+		<p class="canHidden">也要点击我哦。</p>
+		<button id="hiddenCan">隐藏所有</button>
+		<button class="hiddenCan">隐藏自身</button>
+		<button class="live">live --> on</button>
+		<h4>jQuery 选择器</h4>
+		<input type="text" placeholder="jQuery 选择器" /> <button class="selector">修改 input</button>&nbsp;&nbsp;
+		<button id="all">chageAll</button>
+		<h4>jQuery 事件</h4>
+		<span id='event' style="display: none;"></span>
+		<button id="event1">click</button>&nbsp;&nbsp;&nbsp;
+		<button id="event2">dblclick</button>
+		<div id="eventDiv" class="eventDiv">
+			this is a <span class="beauti">beautiful</span> div.
+		</div>
+
+		<br />
+		<hr />
+		<span>未加任何样式：</span>
+		<button>中文</button>&nbsp;&nbsp;&nbsp;&nbsp;
+		<button>Englist</button>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$(".canHidden").click(function() {
+					$(this).hide();
+				});
+				$("#hiddenCan").click(() => {
+					var btn = $("#hiddenCan");
+					if(btn.text() == "显示所有") {
+						$("p").show()
+						btn.text('隐藏所有')
+					} else {
+						$("p").hide()
+						btn.text('显示所有')
+					}
+				});
+				$(".hiddenCan").click(function() {
+					$(this).hide();
+					setTimeout(() => {
+						$(this).show();
+					}, 2000);
+				});
+				$('.live').on("click", () => {
+					alert('live 在 v1.9 被移除，使用 on')
+				});
+				$("button.selector").click(function() {
+					$(":text").val("所有 type='text' 的 <input> 元素");
+					$(":text").css("width", "50%");
+				});
+				$("#all").click(function() {
+					$("* button").css("background-color", "#005580").css("color", "#FFFFFF");
+				})
+				$("hr").css("margin", "20px 0px");
+				$("#event1").click(function() {
+					$("#event").show().text($(this).attr("id") + ": click event.");
+				})
+				$("#event2").dblclick(function() {
+					$("#event").show().text($(this).attr("id") + ": dblclick event. 不会响应单击事件。");
+				})
+				// 汇总 - click 低于 mousedown 优先级；hover 和 mouseenter 同级，谁先实现先被调用。
+				$("#eventDiv").click(function() {
+					_formatEvent($(this), "click");
+				}).dblclick(function() {
+					_formatEvent($(this), "dblclick");
+				}).mouseenter(function() {
+					_formatEvent($(this), "mouseenter");
+				}).mouseleave(function() {
+					_formatEvent($(this), "mouseleave");
+				}).mousedown(function() {
+					_formatEvent($(this), "mousedown");
+				}).mouseup(function() {
+					_formatEvent($(this), "mouseup");
+				}).hover(function() {
+					_formatEvent($(this), "hover");
+				});
+			});
+
+			function _formatEvent(doc, args) {
+				if(doc.text().indexOf(args) == -1) {
+					doc.text(doc.text() + " - " + args);
+				}
+			}
+		</script>
+	</body>
+
+</html>

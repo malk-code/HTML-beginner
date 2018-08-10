@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>input</title>
+	</head>
+	<body>
+		<form> colors <br>
+			favor: <input type="color" name="favcolor" placeholder="purple">
+		</form>
+		<form action="" onclick="tap()">
+		  生日: <input type="date" name="bday">
+		  <input type="submit">
+		</form>
+		<script type="text/javascript">
+			function tap() {
+				alert("click")
+			}
+		</script>
+		<hr />
+		<h4>web 存储</h4>
+		<script type="text/javascript">
+			function func3() {
+				
+				var msg = "Tips";
+				if(typeof(Storage)!=="undefined")
+				{
+				    // 是的! 支持 localStorage  sessionStorage 对象!
+				    // 一些代码.....
+				    msg = "是的! 支持 localStorage  sessionStorage 对象!";
+				} else 
+				{
+				    // 抱歉! 不支持 web 存储。
+				    msg = "抱歉! 不支持 web 存储。"
+				}
+				alert(msg);
+			}
+			
+			function func4() {
+				
+					localStorage.setItem("q","11");
+					var result = localStorage.getItem("q");
+					alert(result + "-");
+			}
+			
+			function func5() {
+				
+				var obj = {name:"malk", nickname:"单行道"}
+				var str = JSON.stringify(obj)
+				alert(str)
+			}
+			
+			function func6() {
+				
+				var jsonStr = '{"name": "malk", "nickname": "单行道"}';
+				var obj = JSON.parse(jsonStr)
+				alert(obj.name + " - " + obj.nickname)
+			}
+		
+		</script>
+		<button onclick="func3()">Storage</button><td>&nbsp;
+		<button onclick="func4()">Storage Test</button><br /><br />
+		
+		<h4>JSON</h4>
+		<button onclick="func5()">stringify</button>&nbsp;
+		<button onclick="func6()">parse</button>
+
+		
+		
+	</body>
+</html>

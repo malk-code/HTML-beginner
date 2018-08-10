@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生认证</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="//static.360buyimg.com/finance/mobile/base/1.0.0/css/reset.css"/>
+    <link rel="stylesheet" href="//static.360buyimg.com/finance/mobile/base/jmcom/css/common/common.rem10.css"/>
+    <link rel="stylesheet" href="//static.360buyimg.com/finance/mobile/base/jmcom/css/components/jdloading.rem10.css"/>
+    <link rel="stylesheet" href="//static.360buyimg.com/finance/mobile/base/jmcom/css/components/areaCombox.rem10.css"/>
+    <link rel="stylesheet" href="//static.360buyimg.com/finance/mobile/consumer/school/specialpower/css/reset.css">
+    <link rel="stylesheet" href="//static.360buyimg.com/finance/mobile/consumer/school/specialpower/css/index.css">
+    <style>
+        .username{line-height: 2rem;margin-top: 1.8rem;margin-bottom: 1.8rem;position: relative;vertical-align: middle;display: inline-block;width: 58%;left: 1rem;}</style>
+</head>
+<body class="bg-gray">
+    <div class="shade"></div>
+    <div class="warn">
+        <div class="warn-box abs-mm ta-c">
+            <div class="warn-head border-b">
+                <p class="warn-txt size14 ">提示文案</p>
+            </div>
+            <p class="warn-btn size18">我知道了</p>
+        </div>
+    </div>
+    <!--<div class="toast">
+        <p class="toast-txt">提示文案</p>
+    </div>-->
+
+    <div class="wrap">
+        <h3 class="page-title">仅支持全日制学生认证,请填写准确的信息</h3>
+        <div class="info-box">
+            <div class="input-box border-b">
+                <span class="info-txt">本人姓名</span>
+                <div class="username"><input class="abs-mm require" type="text" id="username"   data-reg="\S" data-info="请输入姓名" ></div>
+                <input type="hidden" id="isJrReal" value="0">
+                <input type="hidden" id="sid" value="">
+                <input type="hidden" id="deviceInfoJson"/>
+                <input type="hidden" id="stuLevelFlag" value=""/>
+                <i class="info-icon" data-info="此姓名为您的实名姓名"></i>
+            </div>
+            <div class="input-box border-b">
+                <span class="info-txt">身份证号</span>
+                <div class="username"><input  type="text" id="certificateNo"  class="abs-mm require" data-reg="^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$"   maxlength="18"  data-info="身份证号格式不对"></div>
+                <i class="info-icon" data-info="此身份证号为您的实名身份证号"></i>
+            </div>
+            <div class="input-box">
+                <span class="info-txt">手机号</span>
+                <div class="username"><input  type="tel" id="telephone"   class="abs-mm require" data-reg="^1\d{10}$"   maxlength="11"  data-info="手机号错误"></div>
+                <i class="info-icon" data-info="此手机号是您的京东账户绑定的手机号"></i>
+            </div>
+        </div>
+
+        <div class="info-box mt10 ">
+            <div class="input-box school-info border-b">
+                <span class="info-txt">学校所在地</span>
+                <div class="username"><span class="title-txt"></span></div>
+                <i class="right-icon"></i>
+            </div>
+            <div class="input-box status border-b">
+                <span class="info-txt">学籍信息</span>
+                <div class="username"><span class="title-txt"></span></div>
+                <i class="right-icon"></i>
+            </div>
+            <div class="input-box">
+                <span class="info-txt">详细地址</span>
+                <div class="username"><input class="abs-mm require" id="detailAddress"  data-reg="\S"  type="text" maxlength="100"></div>
+            </div>
+        </div>
+        <div class="info-box mt10">
+            <div class="input-box">
+                <span class="info-txt">邀请码</span>
+                <div class="username"><input class="abs-mm" id="inviteCode" placeholder="选填" type="text" maxlength="10"></div>
+            </div>
+        </div>
+
+        <div class="footer-txt">
+            <div class="fl deal"><div class="fill-lf"></div></div>
+                            <a href="//storage.jd.com/baitiao.business.erp.agreement/BT_AGREEMENT_171031172255629149.html" node-type="agree-0">《隐私权保护声明》</a>
+                    </div>
+
+        <p class="btn">立即认证</p>
+        <div class="select-box my-school">
+            <div class="select-title size18">
+                <span>选择学校</span>
+                <i class="close"></i>
+            </div>
+            <div class="search">
+                <div class="search-box pr">
+                    <i class="search-icon abs"></i>
+                    <div class="username search-school"><input class="abs-lm search-input" placeholder="搜索" type="text"></div>
+                </div>
+            </div>
+            <div class="address">
+                <div class="grade-box flexbox">
+                    <div class="flexbox-item address-list school-name">
+                    </div>
+                    <div class="flexbox-item address-list my-grade">
+                        <div class="input-box border-b"><span class="info-txt">本科</span><i class="right-icon"></i></div>
+                        <div class="input-box border-b"><span class="info-txt">硕士</span><i class="right-icon"></i></div>
+                        <div class="input-box border-b"><span class="info-txt">博士</span><i class="right-icon"></i></div>
+                        <div class="input-box border-b"><span class="info-txt">专科</span><i class="right-icon"></i></div>
+                    </div>
+                    <div class="flexbox-item address-list come-date">
+                    </div>
+                    <div class="flexbox-item"></div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+<div class="alert-layer">
+    <div class="alert-box abs-mm">
+        <h3 class="alert-title  ta-c size18 border-b">验证手机号</h3>
+        <div class="alert-cont border-b">
+            <p class="alert-txt size14">输入手机尾号<b id="phoneParam"></b>接收的验证码</p>
+            <div class="message size16 mt10">
+                <div class="msg-input">
+                    <input type="text" id="activeCode" class="tel-input" placeholder="填写短信验证码"   data-reg="^\d{6}$" maxlength="6" />
+                    <input hidden id="schoolVerifyCode">
+                </div>
+                <div class="ta-c mySend">60秒后重发</div>
+            </div>
+        </div>
+        <div class="flexbox ta-c btn-box">
+            <div class="flexbox-item blue cancel" id="sendCodeCancel">取消</div>
+            <div class="flexbox-item sure">确定</div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="//static.360buyimg.com/finance/mobile/base/??jm/js/lib/zepto-1.2.0.js,1.0.0/js/lib/fastclick.js"></script>
+<script src="//static.360buyimg.com/finance/mobile/base/jm/js/dist/userDetective/1.4.0/userDetective.js"></script>
+<script src="//static.360buyimg.com/finance/mobile/base/jmcom/js/lib/iscroll.js"></script>
+<script src="//static.360buyimg.com/finance/mobile/base/jmcom/js/dist/??tools/1.0.0/tools.js,jdloading/1.0.0/jdloading.js"></script>
+<script src="//static.360buyimg.com/finance/mobile/base/jmcom/js/dist/areaCombox/1.0.0/areaCombox.js"></script>
+
+<script src="//m.jr.jd.com/crayfish/zui/bridge/1.0.7/bridge.js"></script>
+<script src="/v3/activity/h5CampusNewZone/js/userDetective.js"></script>
+<script type="text/javascript" src="/v3/activity/h5CampusNewZone/js/util.js"></script>
+<script type="text/javascript" src="/v3/activity/h5CampusNewZone/js/info.js"></script>
+
+<script>
+    var pin='XCLLJCCFXFPVEYNPPNKSP5DINAJMWXAXHEBWOMY';
+</script>
+<script src="//payrisk.jd.com/m.html"></script>
+<script src="//payrisk.jd.com/js/m.js"></script>
+<script  src="/v3/activity/js/cashierRiskCommon.js"></script>
+<script type="text/javascript">
+    var eidData;
+    var fpidData;
+    initDataInfoForH5();
+</script>
+<script>
+
+
+    //设备信息初始化
+    $(function () {
+        var defer = jsBridgeV3.onReady();
+        setTimeout(function () {
+            try {
+                defer.then(function (res) {
+                    res.jsToGetResp(function (d) {
+                        d = (typeof d == 'object') ? d : JSON.parse(d);
+                        if (d && d.deviceInfo) {
+                            $('#deviceInfoJson').text(JSON.stringify(d.deviceInfo));
+                        }
+                    }, {
+                        type: 9,
+                        data: ''
+                    });
+                });
+            } catch (e) {
+                var d = '';
+                $('#deviceInfoJson').text(d);
+            }
+        }, 300);
+    });
+</script>
+
+
+</html>

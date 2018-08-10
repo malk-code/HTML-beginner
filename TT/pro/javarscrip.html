@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<title>Bridge</title>
+		<title>Feature</title>
+	</head>
+
+	<body>
+
+			<div>javaScript syntax</div>
+		<script>
+			// 15. ${ }：需要使用折反单引号，不是引号，${}里边依旧是js，外边也是js ，场景比如字符串拼接，只要console.log(`== ${a} ==`)：这和 C# 打印的 $ 用法极相似。还可以用作路由传参。
+
+			let a = 10;
+			console.log(`字符串拼接 ES6 语法: ${a}`);
+
+			// 16. 对象的 prototype：hasOwnProperty() 方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性；delete obj.xxx; 可以删除 obj 对象的 xxx 属性，hasOwnProperty 返回 false
+			let obj = {
+				'name': 'test',
+				time: '2018-6-9',
+			};
+			console.log(`是否存在 name 属性: ${obj.hasOwnProperty('name')}`);
+			delete obj.name;
+			console.log(`是否存在 name 属性: ${obj.hasOwnProperty('name')}`);
+		</script>
+	</body>
+
+</html>

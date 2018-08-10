@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+		<title>Bridge</title>
+		<script src="bridgejs.js"></script>
+		<style>
+			button {
+				font-size: 2em;
+				border: 2px solid #a1a1a1;
+				border: 2px;
+				padding: 10px 40px;
+				background: #DDDDDD;
+				border-radius: 25px;
+				text-align: center;
+				margin: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="log"></div>
+		<hr />
+		<p>Bridge</p>
+		<button onclick="callMineCommonBridge()">Mine</button> &nbsp;
+		<button onclick="callNativeCommonBridge()">UUID</button> &nbsp;<br />
+
+		<p id="microphone">Microphone</p>
+		<button onclick="callNativeCommonBridge_microphone()">microphone</button>
+		<button onclick="callNativeCommonBridge_palyAudio()">playMp3 Bridge</button><br />
+		<button onclick="document.getElementById('audioaudio').play()">play js</button>
+		<button onclick="document.getElementById('audioaudio').pause();">pause js</button>
+		<script>
+			registerNatvieCommonBridge();
+		</script>
+		<audio controls="controls" id="audioaudio" hidden="hidden">
+			<source src="https://xuebankoss.oss-cn-shanghai.aliyuncs.com/xuebank_pro/iOS_Record/20180403/201804031509255793_mp3Record_1522739364.mp3" type="audio/mp3">
+		</audio>
+		<hr />
+	</body>
+
+</html>

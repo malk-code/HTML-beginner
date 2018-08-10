@@ -1,0 +1,77 @@
+
+/** 对原有标签进行定制 */
+body {
+	    background-color:white;
+
+}
+a {
+	background: antiquewhite;
+}
+h2 {
+    color:olive;
+    text-align:center;
+    font-family: "bodoni mt";
+}
+
+/** 在原有标签基础上添加类 */
+p.style1 {
+    font-family:"Times New Roman";
+    font-size:18px;
+}
+p.style2 {
+    font-family:"Times New Roman";
+    font-size:14px;
+}
+p.style3 {
+	font-family: "Times New Roman";
+	font-size: 10px;
+	text-align: end;
+}
+
+/** 自定义属性ID */
+#cssid1 {
+	font-family: "微软雅黑";
+	font-size: 23px;
+}
+
+/** 自定义全局类 */
+.end {
+	text-align: end;
+}
+
+/** 对于某个标签修改全局类 */
+p.end {
+	text-align: center;
+	background: red;
+	color: white;
+}
+
+p.style4 {
+	color: white;
+	background: orange;
+}
+
+/*HTML5 定了 8 个新的 HTML 语义（semantic） 元素。所有这些元素都是 块级 元素。
+
+为了能让旧版本的浏览器正确显示这些元素，你可以设置 CSS 的 display 属性值为 block*/
+header, section, footer, aside, nav, main, article, figure {
+    display: block; 
+}
+
+article {
+	width:100px;
+	height:100px;
+	background:red;
+	transition-property: width;
+	transition-duration: 2s;
+	-webkit-transition-property: width; /* Safari */
+	-webkit-transition-duration: 2s; /* Safari */
+	
+	text-align: center;
+	font-size: 12px;
+}
+
+article:hover
+{
+	width:300px;
+}

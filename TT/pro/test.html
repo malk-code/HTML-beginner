@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>alert</title>
+		<style>
+			@media only screen and (min-width: 320px) and (max-width: 1000px) {
+				button {font-size: 1.5em;}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<p id="p1">alert:</p>
+		<button onclick="warmAlert()";>alert</button><br /><br />
+		<span id="span1">text</span>
+		<button onclick="conAlert()">confirm alert</button><br /><br />
+		<span id="span2">text</span>
+		<button onclick="proAlert()">prompt alert</button>
+		
+		<script>
+			function warmAlert() {
+				var alet = alert('alert'); 
+				if (alert) {
+					document.getElementById('p1').innerHTML = '点击了alert';
+				}
+			}
+			
+			function conAlert() {
+				var sure = confirm("confirm alert");
+				document.getElementById('span1').innerHTML = '点击了' + (sure == true? "confirm": "cancel");
+			}
+			
+			function proAlert() {
+				var content = prompt('message', 'placeHolder');
+				
+				if (content != null && content.length) {
+					document.getElementById('span2').innerHTML = content;
+				}
+			}
+		</script>
+		
+		<hr />
+		<p>Bridge</p>
+		<button id="third" onclick="document.getElementById('ifrmeId').src='nativexuebank://open?webUrl=http://192.168.2.101:8020/WEB/HTML/TT/pro/bridge.html&hasNavigationBar=true'">open Bridge</button>
+
+		<hr />
+		<p>ifrme</p>
+		<iframe id="ifrmeId" hidden="hidden"></iframe>
+		<button id="third" onclick="document.getElementById('ifrmeId').src='nativexuebank://open?webUrl=http://192.168.2.101:8020//HTML/TT/js/js8.html&hasNavigationBar=true'">open</button>
+		<button id="third" onclick="document.getElementById('ifrmeId').src='nativexuebank://closeWebViewController'">close</button>
+		<button id="third" onclick="document.getElementById('ifrmeId').src='nativexuebank://share?title=1&content=2'">share</button>
+		<button id="third" onclick="document.getElementById('ifrmeId').src='nativexuebank://status?color=201,30,331,1'">color</button>
+		<p>others</p>
+		<button id="third" onclick="location='nativexuebank://open?webUrl=http://192.168.2.101:8020/WEB/HTML/TT/js/js8.html&hasNavigationBar=true'">location open</button>
+		<button id="third" onclick="window.open('nativexuebank://open?webUrl=http://192.168.2.101:8020/WEB/HTML/TT/js/js8.html&hasNavigationBar=true')">window open</button>
+
+		<hr />
+		<p>TEST</p>
+		<audio controls="controls" style="height: 40px;">
+		  <source src="https://xuebankoss.oss-cn-shanghai.aliyuncs.com/xuebank_pro/iOS_Record/20180403/201804031509255793_mp3Record_1522739364.mp3" type="audio/mp3">
+		</audio>
+	</body>
+</html>

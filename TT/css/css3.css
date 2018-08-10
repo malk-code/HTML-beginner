@@ -1,0 +1,79 @@
+
+/*缩放同步调整字体大小兼容IE*/
+body {
+	font-size:100%;
+}
+ 
+p.font_1 {
+	font-family:"楷体", "仿宋", "宋体", "Times New Roman", Times, serif; 
+	/*font-size: 36px;*/
+	font-size: 1em;
+	font-weight: 600;
+	font-variant: all-small-caps;
+}
+
+p.font_2 {
+	font-family: "仿宋", serif, times;
+	/*font-size: 32px;*/
+	font-size: 0.8em;
+	font-weight: lighter;
+	font-variant: small-caps;
+}
+
+/*简写*/
+p.ex1
+{
+	font:15px arial,sans-serif;
+}
+
+p.ex2
+{
+	font:italic bold 12px/30px Georgia,serif;
+}
+
+a:link,a:visited
+{
+	display:block;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:#98bf21;
+	width:120px;
+	text-align:center;
+	padding:4px;
+	text-decoration:none;
+}
+a:hover,a:active
+{
+	background-color:#7A991A;
+}
+ul.a {
+	list-style-type: circle;
+}
+ol.b {
+	list-style-type: lower-roman;
+}
+ul.c {
+	list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+	list-style-image: url(../img/WX20180206-143741.png);
+}
+ul.c li
+{
+    background-image: url(../img/WX20180206-143741.png);
+    background-repeat: no-repeat;
+    background-position: 10px 5px; 
+    padding-left: 100px; 
+}
+
+div {
+    background-color: lightgrey;
+    width: 300px;
+    border: 25px solid green;
+    padding: 25px;
+    margin: 25px;
+}
+
+
+
+

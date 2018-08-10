@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQuery</title>
+		<head>
+		<!--JQuery和Prototype均支持链式语法-->
+		<script src="http://apps.bdimg.com/libs/prototype/1.7.1.0/prototype.js"></script>
+		<script src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<!--同一页面引入多个js库，jq让渡解决办法-->
+		<script type="text/javascript">
+			var $j=$.noConflict();    // 让渡$给第一个实现它的库。  Query在其他库之前导入不必使用jQuery.noConflict()                                                                       
+		    $j("#div").hide();       // 使用$j作为jQuery库的标识符                                                                         
+		　  $("#div").hide();       // 使用另一个库的 $ 的代码
+		</script>
+	</head>
+	<body>
+		<h4 id="h01">Hello</h4>
+		<button onclick="myFunction1()">javaScript</button>
+		<button onclick="myFunction8()">reset</button><br /><br />
+
+		<button onclick="$j(document).ready(myFunction2);">jQuery</button>
+		<button onclick="$j(document).ready(myFunction3);">jq style</button>
+		<button onclick="$j(document).ready(myFunction6);">jq chain</button><br /><br />
+
+		<button onclick="Event.observe(window, 'click', myFunction4);">Prototype</button>
+		<button onclick="Event.observe(window, 'click', myFunction5);">pro style</button>
+		<button onclick="Event.observe(window, 'click', myFunction7);">pro chain</button>
+		<script>
+			function myFunction1()
+			{
+			    var obj=document.getElementById("h01");
+			    obj.innerHTML="Hello javaScript";
+			}
+			function myFunction8() {
+				var obj=document.getElementById("h01");
+				obj.innerHTML = "Hello";
+				obj.style.color = "#000000";
+			}
+		</script>
+		<script>
+			function myFunction2() {
+			    $j("#h01").html("Hello jQuery");
+			}
+			function myFunction3() {
+				$j('#h01').attr('style','color: red');
+			}
+			function myFunction6() {
+				$j('#h01').attr('style', 'color: blueviolet;').html('jQuery Chain');
+			}
+ 		</script>
+ 		<script>
+ 			function myFunction4() {
+				$("h01").insert("Hello Prototype!");
+ 			}
+ 			function myFunction5() {
+				$("h01").writeAttribute("style","color: red");
+			}
+ 			function myFunction7() {
+				$('h01').insert('Prototype Chain!').writeAttribute('style', 'color: red');
+ 			}
+ 		</script>
+ 		
+ 		<hr />
+ 		<h4>jQuery</h4>
+ 		<p>点击即消失</p>
+ 		<p>1</p>
+ 		<p>2</p>
+ 		<p>3</p>
+ 		<script>
+			$j(document).ready(function () {
+				$j('p').click(function () {
+					$j(this).hide();
+				})
+			})
+ 		</script>
+	</body>
+</html>

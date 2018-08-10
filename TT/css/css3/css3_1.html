@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" >  
+		<title>css3</title>
+		<style>
+			div {
+				width: 100px;
+				height: 75px;
+				background: red;
+				border: 1px solid black;
+				text-align: center;
+				line-height: 230%;
+				font-size: 12px;
+			}
+			div#div2 {
+				transform: rotate(30deg);
+				-ms-transform: rotate(30deg);
+				-webkit-transform: rotate(30deg);
+			}
+			div#div3 {
+				transform:skew(30deg,20deg);
+				-ms-transform:skew(30deg,20deg); /* IE 9 */
+				-webkit-transform:skew(30deg,20deg); /* Safari and Chrome */
+			}
+			article {
+				border: 2px solid #a1a1a1;
+				border: 2px;
+				padding: 10px 40px;
+				background: #DDDDDD;
+				width: 200px;
+				border-radius: 25px;
+				text-align: center;
+			}
+			article#shadow {
+				margin-top: 20px;
+				box-shadow: 10px 10px 5px #888888;
+				margin-bottom: 30px;
+			}
+			span {
+				display: block;
+				border: 15px solid transparent;
+				width: 200px;
+				padding: 10px 20px;
+				margin-bottom: 20px;
+			}
+			span#round {
+				-webkit-border-image: url(../../img/border.png) 30 30 round;
+				-moz-border-image: url(../../img/border.png) 30 30 round;
+				/*border-image: url(../../img/border.png) 30 30 round;*/
+			}
+			span#stretch {
+				-webkit-border-image: url(../../img/border_w3c.png) 30 30 stretch;
+				/*-moz-border-image: url(../../img/border.png) 30 30 stretch;*/
+				/*border-image: url(../../img/border.png) 30 30 stretch;*/
+			}
+		</style>
+	</head>
+	<body>
+		<p>transform:</p>
+		<div>这是一个普通的div标签。</div>
+		<div id="div2">这是一个transform的标签。</div>
+		<br />
+		<div id="div3">这是一个transform的标签。</div>
+
+		<p style="margin-top: 40px;"></p><hr />
+		
+	</body>
+	<p>样式和边框</p>
+	<article>定义的样式</article>
+	<article id="shadow">基于原样式加shadow</article>
+	
+	<hr />
+	<p>边界图片</p>
+	<span id="round">平铺（重复）</span>
+	<span id="stretch">填充（拉伸）</span>
+	
+	<hr />
+	<p></p>
+</html>

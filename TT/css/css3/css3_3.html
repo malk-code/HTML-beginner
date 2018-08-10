@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<title>css3</title>
+	<style>
+		div {
+			width: 100%px;
+			margin: 30px;
+		}
+
+		#grad1 {
+			height: 100px;
+			background: linear-gradient(red, blue);
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad2 {
+			height: 30px;
+			background: linear-gradient(to right, red, blue, yellow);
+		}
+
+		#grad3 {
+			height: 1px;
+			background: linear-gradient(to left, orange, blue);
+		}
+
+		#grad4 {
+			height: 100px;
+			background: linear-gradient(to right bottom, red, blue);
+		}
+
+		#grad5 {
+			height: 40px;
+			/*不均匀分布*/
+			background: linear-gradient(to right, red 10%, green 20%, blue 30%);
+		}
+
+		#grad6 {
+			height: 40px;
+			background: -webkit-gradient(linear, 100% 0, 0 0, from(rgba(255, 0, 0, 0)), to(rgba(255, 0, 0, 1)));
+			background: -webkit-linear-gradient(to right, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1));
+			background: -moz-linear-gradient(to right, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1));
+			background: -o-linear-gradient(to right, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1));
+			background: linear-gradient(to right, rgba(255, 0, 0, 0), rgba(255, 0, 0, 1));
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad7 {
+			height: 200px;
+			background: repeating-linear-gradient(red, yellow 10%, green 20%);
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad77 {
+			height: 200px;
+			background: repeating-radial-gradient(red, yellow 10%, green 15%);
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad8 {
+			height: 200px;
+			background: radial-gradient(circle, red, yellow, green);
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad9 {
+			height: 200px;
+			/*shape 参数定义了形状。它可以是值 circle 或 ellipse。其中，circle 表示圆形，ellipse 表示椭圆形。默认值是 ellipse。*/
+			background: radial-gradient(ellipse, red, yellow, green);
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad10 {
+			height: 200px;
+			/*shape 参数定义了形状。它可以是值 circle 或 ellipse。其中，circle 表示圆形，ellipse 表示椭圆形。默认值是 ellipse。*/
+			background: radial-gradient(closest-side, red, yellow, green);
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad11 {
+			margin: 0px 30px 0px 30px;
+			height: 100px;
+			background: -webkit-linear-gradient(0deg, red, blue);
+			/* Safari 5.1 - 6.0 */
+			background: -o-linear-gradient(0deg, red, blue);
+			/* Opera 11.1 - 12.0 */
+			background: -moz-linear-gradient(0deg, red, blue);
+			/* Firefox 3.6 - 15 */
+			background: linear-gradient(0deg, red, blue);
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad12 {
+			margin: 0px 30px 0px 30px;
+			height: 100px;
+			background: -webkit-linear-gradient(90deg, red, blue);
+			/* Safari 5.1 - 6.0 */
+			background: -o-linear-gradient(90deg, red, blue);
+			/* Opera 11.1 - 12.0 */
+			background: -moz-linear-gradient(90deg, red, blue);
+			/* Firefox 3.6 - 15 */
+			background: linear-gradient(90deg, red, blue);
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad13 {
+			margin: 0px 30px 0px 30px;
+			height: 100px;
+			background: -webkit-linear-gradient(180deg, red, blue);
+			/* Safari 5.1 - 6.0 */
+			background: -o-linear-gradient(180deg, red, blue);
+			/* Opera 11.1 - 12.0 */
+			background: -moz-linear-gradient(180deg, red, blue);
+			/* Firefox 3.6 - 15 */
+			background: linear-gradient(180deg, red, blue);
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad14 {
+			margin: 0px 30px 0px 30px;
+			height: 100px;
+			background: -webkit-linear-gradient(-90deg, red, blue);
+			/* Safari 5.1 - 6.0 */
+			background: -o-linear-gradient(-90deg, red, blue);
+			/* Opera 11.1 - 12.0 */
+			background: -moz-linear-gradient(-90deg, red, blue);
+			/* Firefox 3.6 - 15 */
+			background: linear-gradient(-90deg, red, blue);
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad99 {
+			height: 200px;
+			background: -webkit-gradient(linear, 0 0, 0 100%, from(red), color-stop(0.17, orange), color-stop(0.33, yellow), color-stop(0.5, green), color-stop(0.67, blue), color-stop(0.83, indigo), to(purple));
+			background: -webkit-linear-gradient(red, orange, yellow, green, blue, indigo, purple);
+			background: -moz-linear-gradient(red, orange, yellow, green, blue, indigo, purple);
+			background: -o-linear-gradient(red, orange, yellow, green, blue, indigo, purple);
+			background: linear-gradient(red, orange, yellow, green, blue, indigo, purple);
+			/* 标准的语法（必须放在最后） */
+		}
+
+		#grad98 {
+			height: 100px;
+			background: -webkit-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
+			/* Safari 5.1 - 6.0 */
+			background: -o-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
+			/* Opera 11.1 - 12.0 */
+			background: -moz-linear-gradient(left, red, orange, yellow, green, blue, indigo, violet);
+			/* Firefox 3.6 - 15 */
+			background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+			/* 标准的语法（必须放在最后） */
+		}
+	</style>
+</head>
+
+<body>
+	<h4>Gradients</h4>
+	<div id="grad1"></div>
+	<div id="grad2"></div>
+	<div id="grad3"></div>
+	<div id="grad4"></div>
+	<div id="grad5"></div>
+	<div id="grad6"></div>
+	<div id="grad7"></div>
+	<div id="grad77"></div>
+	<div id="grad8"></div>
+	<div id="grad9"></div>
+	<div id="grad10"></div>
+
+	<h5 style="text-align: center;">线性渐变 - 使用不同的角度</h5>
+	<div id="grad11" style="color:white;text-align:center;">0deg</div>
+	<br>
+	<div id="grad12" style="color:white;text-align:center;">90deg</div>
+	<br>
+	<div id="grad13" style="color:white;text-align:center;">180deg</div>
+	<br>
+	<div id="grad14" style="color:white;text-align:center;">-90deg</div>
+
+	<h5 style="text-align: center;">彩虹七色</h5>
+	<div id="grad99"></div>
+	<div id="grad98"></div>
+	<br />
+	<hr />
+</body>
+
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+		<title>csse button</title>
+		<style>
+			.button {
+			  background-color: #4CAF50;
+			  border: none;
+			  color: white;
+			  padding: 15px 32px;
+			  text-align: center;
+			  text-decoration: none;
+			  display: inline-block;
+			  font-size: 1rem;
+			  margin: 4px 2px;
+			  cursor: pointer;
+			  border-radius: 4px;
+			}
+			.button2 {background-color: #008CBA;} /* Blue */
+			.button3 {background-color: #f44336;} /* Red */ 
+			.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+			.button5 {background-color: #555555;} /* Black */
+			
+			/*4. 样式可被覆盖和继承，相同名称的css声明，会继承之前的样式属性，更新当前设置的属性，重复则修改，没有则新增；且同一个标签可以在设置多个class样式*/
+
+			.button1 {font-size: 10px;}
+			.button2 {font-size: 12px;}
+			.button3 {font-size: 16px;}
+			.button4 {font-size: 20px;}
+			.button5 {font-size: 24px;}
+			
+			.button1 {border-radius: 2px;}
+			.button2 {border-radius: 4px;}
+			.button3 {border-radius: 8px;}
+			.button4 {border-radius: 12px;}
+			.button5 {border-radius: 50%;}
+			
+			.button1:hover,
+			.button1:active {
+			    background-color: white; 
+			    color: black; 
+			    border: 2px solid #4CAF50;
+			}
+			.button2:hover,
+			.button2:active {
+			    background-color: white; 
+			    color: black; 
+			    border: 2px solid #008CBA;
+			}
+			.button3:hover,
+			.button3:active {
+			    background-color: white; 
+			    color: black; 
+			    border: 2px solid #f44336;
+			}
+			.button4:hover,
+			.button4:active {
+			    background-color: white; 
+			    color: black; 
+			    border: 2px solid #e7e7e7;
+			}
+			.button5:hover,
+			.button5:active {
+			    background-color: white; 
+			    color: black; 
+			    border: 2px solid #555555;
+			}
+			
+			.button {
+				-webkit-transition-duration: 0.4s; /* Safari */
+    				transition-duration: 0.4s;
+			}
+			
+			.button11 {
+			    background-color: white; 
+			    color: black; 
+			    border: 2px solid #4CAF50;
+			}
+			.button11:hover,
+			.button11:active {
+			    background-color: #4CAF50;
+			    color: white;
+			}
+			.button12 {
+			    background-color: white; 
+			    color: black; 
+			    border: 2px solid #008CBA;
+			}
+			.button12:hover,
+			.button12:active {
+			    background-color: #008CBA;
+			    color: white;
+			}
+			.button13 {
+			    background-color: white; 
+			    color: black; 
+			    border: 2px solid #f44336;
+			}
+			.button13:hover,
+			.button13:active {
+			    background-color: #f44336;
+			    color: white;
+			}
+			.button14 {
+			    background-color: white;
+			    color: black;
+			    border: 2px solid #e7e7e7;
+			}
+			.button14:hover,
+			.button14:active {
+			    background-color: #e7e7e7;
+			    color: white;
+			}
+			.button15 {
+			    background-color: white;
+			    color: black;
+			    border: 2px solid #555555;
+			}
+			.button15:hover,
+			.button15:active {
+			    background-color: #555555;
+			    color: white;
+			}
+			
+			/*5. 样式的效果，如hover，active重复设置，处理是更新，会继承之前的样式属性，更新当前设置的属性，重复则修改；若一个标签继承了多个样式，若有多个效果也会被继承过来*/
+			
+			.button {
+			    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+			}
+			
+			.button:hover {
+			    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+			}
+			
+			.disabled {
+				opacity: .6;
+				cursor: not-allowed;
+			}
+			
+			/*流式布局: 设置为left*/
+			.buttonGroup {
+				float: left;
+				margin: 0px;
+				border: none;
+				border-radius: 0px;
+			}
+			
+			/*移除外边距并添加 float:left 来设置按钮组*/
+			.buttonGroup:hover,
+			.buttonGroup.active {
+				background: #3E8E41;
+			}
+			
+			.buttonAnimation {
+				display: inline-block;
+			    border-radius: 4px;
+			    background-color: #f4511e;
+			    border: none;
+			    color: #FFFFFF;
+			    text-align: center;
+			    font-size: 28px;
+			    padding: 20px;
+			    width: 200px;
+			    transition: all 0.5s;
+			    cursor: pointer;
+			    margin: 5px;
+			}
+			.buttonAnimation span {
+			  cursor: pointer;
+			  display: inline-block;
+			  position: relative;
+			  transition: 0.5s;
+			}
+			.buttonAnimation span:after {
+			  content: '»';
+			  position: absolute;
+			  opacity: 0;
+			  top: 0;
+			  right: -20px;
+			  transition: 0.5s;
+			}
+			.buttonAnimation:hover span {
+			  padding-right: 25px;
+			}
+			.buttonAnimation:hover span:after {
+			  opacity: 1;
+			  right: 0;
+			}
+			
+			.buttonAnimation1 {
+				position: relative;
+			    background-color: #4CAF50;
+			    border: none;
+			    font-size: 18px;
+			    color: #FFFFFF;
+			    padding: 20px;
+			    width: 200px;
+			    text-align: center;
+			    -webkit-transition-duration: 0.4s; /* Safari */
+			    transition-duration: 0.4s;
+			    text-decoration: none;
+			    overflow: hidden;
+			    cursor: pointer;
+			}
+			.buttonAnimation1:after {
+			    content: "";
+			    background: #90EE90;
+			    display: block;
+			    position: absolute;
+			    padding-top: 300%;
+			    padding-left: 350%;
+			    margin-left: -20px!important;
+			    margin-top: -120%;
+			    opacity: 0;
+			    transition: all 0.8s
+			}
+			.buttonAnimation1:active:after {
+			    padding: 0;
+			    margin: 0;
+			    opacity: 1;
+			    transition: 0s 
+			}
+			
+			/*按压效果，对iPhone设备无效*/
+			.buttonAnimation2 {
+  				  display: inline-block;
+				  padding: 15px 25px;
+				  font-size: 24px;
+				  cursor: pointer;
+				  text-align: center;   
+				  text-decoration: none;
+				  outline: none;
+				  color: #fff;
+				  background-color: #4CAF50;
+				  border: none;
+				  border-radius: 15px;
+				  box-shadow: 0 9px #999;
+				}
+				.buttonAnimation2:hover {
+					background-color: #3e8e41;
+				}
+				.buttonAnimation2:active {
+				  background-color: #3e8e41;
+				  box-shadow: 0 5px #666;
+				  transform: translateY(4px);
+				  /*transform: translateX(4px);*/
+				}
+		</style>
+	</head>
+	<body>
+		<p>button标签</p>
+		<button id="a1 a2">默认按钮</button>
+
+		<p>相同样式，不同标签</p>
+		<a href="#" class="button">链接按钮</a>
+		<button class="button">按钮</button>
+		<input type="button" class="button" value="输入框按钮">	
+
+		<!--4. 样式可被覆盖和继承，相同名称的css声明，会继承之前的样式属性，更新当前设置的属性，重复则修改，没有则新增；且同一个标签可以在设置多个class样式-->
+
+		<p>不同背景，两个样式</p>
+		<button class="button button1">Green</button>
+		<button class="button button2">Blue</button>
+		<button class="button button3">Red</button>
+		<button class="button button4">Gray</button>
+		<button class="button button5">Black</button>
+		
+		<p>不同边框，两个样式</p>
+		<button class="button button11">Green</button>
+		<button class="button button12">Blue</button>
+		<button class="button button13">Red</button>
+		<button class="button button14">Gray</button>
+		<button class="button button15">Black</button>
+		
+		<p>禁用按钮</p>
+		<button class="button">正常按钮</button>
+		<button class="button disabled">禁用按钮</button>
+		
+		<p>按钮组</p>
+		<button class="button buttonGroup">Button</button>
+		<button class="button buttonGroup">Button</button>
+		<button class="button buttonGroup">Button</button>
+		
+		<p style="clear: both; margin-top: 80px;">按钮动画</p>
+		<button class="buttonAnimation" style="vertical-align:middle">
+			<span>Hover</span>
+		</button>
+		<button class="buttonAnimation1">波纹动画</button>
+		<button class="buttonAnimation2">按压动画</button>
+
+			
+		<!--<script> 
+			//4. id声明可有空格
+			setTimeout(function() {
+				alert("id声明可有空格: " + document.getElementById('a1 a2') + document.getElementsByClassName('button button2'));
+			}, 5000);
+		</script>-->
+	</body>
+</html>

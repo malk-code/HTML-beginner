@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p> 网络图片 </p>
+		<img id="scream" src="https://timgsa.baidu.com/timg?image.jpg" alt="The Scream" width="200" height="100">
+
+		<p>Image to use:</p>
+		<img id="scream" src="img/img_the_scream.jpg" alt="The Scream" width="220" height="277">
+		<br> <br> 
+		<p>Canvas:</p>
+		<canvas id="myCanvas1" width="250" height="300" style="border:1px solid #d3d3d3;"></canvas>
+		<script>
+
+		var c = document.getElementById("myCanvas1");
+		var ctx = c.getContext("2d");
+		var img = document.getElementById("scream");
+		
+		img.onload = function() {
+			ctx.drawImage(img,10,10);
+		} 
+</script>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>demo</title>
+
+	</head>
+	<body>
+		<hr>我是水平线<hr> 
+		<a href="http://www.runoob.com/" target="_blank">这是一个链接</a><br />
+		<a href="H5/location.html">这是一个链接</a>
+
+		<p>这个<br>段落<br>演示了分行的效果</p>
+		
+		<em><code><i><b>code code var a = 10</b></i></code></em>
+		<br>
+		<del>del</del> &nbsp; <abbr>abbrd</abbr> &nbsp; <address>address</address>
+		<strong>strong</strong>
+		<br />
+		
+		<big> 放大字体 </big>
+		<sub>下标</sub>
+		<hr>
+			<p>
+				普通的链接：<a href="http://www.example.com/">链接文本</a><br>
+				图像链接： <a href="http://www.example.com/"><img src="URL" alt="替换文本"></a><br>
+				邮件链接： <a href="mailto:webmaster@example.com">发送e-mail</a><br>
+				书签：<br />
+				<a id="tips">提示部分</a><br />
+				<a href="#tips">跳到提示部分</a><br />
+			</p>
+			
+		<audio controls="controls" id="audio" loop="loop" autoplay="autoplay">
+		  <source src="http://www.w3school.com.cn/i/song.mp3" type="audio/mp3">
+		  <!--<source src="http://test.xuebank.com/html/activity/appNativeTest/AAA.mp3" type="audio/mp3">-->
+		  	<!--<source src="music/张宇-给你们.mp3" type="audio/mp3"></source>-->
+		</audio>
+		<script type="text/javascript">
+			
+			var audio = document.getElementById("audio");
+			
+			audio.load(); 
+			audio.play();
+			
+		</script>
+		
+		
+		<button onclick="uaClick()" style="font-size: 2em;">获取UA</button>
+		
+		<div id="uaId">ua</div>
+		
+		<script>
+			function uaClick(){
+				alert(navigator.userAgent);
+				
+				console.log(navigator.userAgent);
+				
+				var d = document.getElementById("uaId");
+				d.innerHTML = navigator.userAgent;
+			}
+		</script>
+		
+		<hr />
+		
+		<button onclick="open1()" style="font-size: 2em;">Window.open</button> <br />
+		<button onclick="location1()" style="font-size: 2em;">location.href</button>
+
+		<script>
+			function open1() {
+				
+				window.open("http://192.168.2.101:8020/TT/css/css6.html?__hbt=1517985718658");
+//              window.open("https://test.xuebank.com/html/campusCode/index.html#/gameDistribute?mode=open&id=11");
+			}
+			function location1() {
+				location.href = "https://test.xuebank.com/html/campusCode/index.html#/gameDistribute?mode=open&id=11";
+			}
+		</script>
+		
+		<video id="video" src="http://xuebankoss.oss-cn-shanghai.aliyuncs.com/public/vedio/f982b17d444a0f959694c702bf5a9fd7.mp4?mode=open"></video>
+		
+		<h1> 我在桌面，我是Hbulider</h1>
+	</body>
+</html>

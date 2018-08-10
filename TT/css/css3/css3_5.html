@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+		<title>css3 多列</title>
+		<style>
+			body {
+				font-size: 1rem;
+			}
+			.newspaper {
+				column-count: 3;	
+				text-align: justify;
+				column-gap: 20px;
+				column-rule-style: dotted;
+				column-rule-width: 1px;
+				column-rule-color: #008000;
+				column-width: 100px;
+			}
+			/*无效*/
+			.spanColumn {
+				column-span: all;
+			}
+			
+			#div1 {
+				border: solid mediumturquoise;
+				border-width: 1px;
+				padding: 10px 40px;
+				width: 300px;
+				resize: both;
+				overflow: auto;
+			}
+			div.container {
+				width: 22em;
+				border: 1em solid;
+				margin-top: 1em;
+				margin-bottom: 80px;
+			}
+			div.box {
+				box-sizing: border-box;
+				width: 50%;
+				border: 1em solid red;
+				float: left;
+			}
+			
+			div.outline {
+				margin:20px;
+				width:150px; 
+				padding:10px;
+				height:70px;
+				border:2px solid black;
+				outline:2px solid red;
+				outline-offset:15px;
+				outline-color: #888888;
+				outline-style: dotted;
+			}
+			
+			a.linkImage {
+				display: block;
+				border: 1px solid #DDDDDD;
+				border-radius: 4px;
+				padding: 5px;
+				transform: 0.3s;				
+			}
+			a.linkImage:hover {
+    				box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+			}
+			img.auto {
+				width: 100%;
+				height: auto;
+			}
+			img.txt {
+				width: 100%;
+				height: auto;
+				opacity: 0.3;
+			}
+			.leftTop {
+				position: absolute;
+				left: 10px;
+				top: 10px;
+			}
+			.leftBottom {
+				position: absolute;
+				left: 10px;
+				bottom: 10px;
+			}
+			.centerPosition {
+				position: absolute;
+				top: 50%;
+				width: 100%;
+				left: 0px;
+				text-align: center;
+			}
+			.rightTop {
+				position: absolute;
+				right: 10px;
+				top: 10px;
+			}
+			.rightBottom {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+			.containerPosition {
+				position: relative;
+			}
+			
+			.polaroid {
+				width: 80%;
+				background: white;
+ 			 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+				margin-bottom: 25px;
+			}
+			div.container1 {
+			  text-align: center;
+			  padding: 10px 20px;
+			}
+			
+			#imgilter {
+			    width: 33%;
+			    height: auto;
+			    float: left; 
+			    max-width: 235px;
+			}
+			.blur {-webkit-filter: blur(4px);filter: blur(4px);}
+			.brightness {-webkit-filter: brightness(250%);filter: brightness(250%);}
+			.contrast {-webkit-filter: contrast(180%);filter: contrast(180%);}
+			.grayscale {-webkit-filter: grayscale(100%);filter: grayscale(100%);}
+			.huerotate {-webkit-filter: hue-rotate(180deg);filter: hue-rotate(180deg);}
+			.invert {-webkit-filter: invert(100%);filter: invert(100%);}
+			.opacity {-webkit-filter: opacity(50%);filter: opacity(50%);}
+			.saturate {-webkit-filter: saturate(7); filter: saturate(7);}
+			.sepia {-webkit-filter: sepia(100%);filter: sepia(100%);}
+			.shadow {-webkit-filter: drop-shadow(8px 8px 10px green);filter: drop-shadow(8px 8px 10px green);}
+		</style>
+	</head>
+	<body>
+		<h4>column</h4>
+		<div class="newspaper">“当我年轻的时候，我梦想改变这个世界；当我成熟以后，我发现我不能够改变这个世界，我将目光缩短了些，决定只改变我的国家；当我进入暮年以后，我发现我不能够改变我们的国家，我的最后愿望仅仅是改变一下我的家庭，但是，这也不可能。当我现在躺在床上，行将就木时，我突然意识到：如果一开始我仅仅去改变我自己，然后，我可能改变我的家庭；在家人的帮助和鼓励下，我可能为国家做一些事情；然后，谁知道呢?我甚至可能改变这个世界。”
+		<p class="spanColumn">英国维斯米斯特教堂碑文</p>
+		</div>
+		
+		<hr />
+		<h4>Layout</h4>
+		<div id="div1">
+			调整属性指定一个元素是否由用户可调整大小的。手机端无效
+		</div>
+		
+		<div class="container">
+			<div class="box">
+				这个 div 占据了左边的一半。
+			</div>
+			<div class="box">
+				这个 div 占据了右边的一半。
+			</div>
+		</div>
+		
+		<hr />
+		<h4>outline</h4>
+		<div class="outline">这个 div有一个轮廓边界15 px边境外的边缘。</div>
+		
+		<br />
+		<hr />
+		<h4>Image</h4>
+		<img style="border-radius: 8px;" src="../../img/paris.jpg" alt="Paris" width="100%" height="200">
+		<br /><br />
+		<img style="border-radius: 50%;" src="../../img/paris.jpg" alt="Paris" width="100%" height="200">
+		<br /><br />
+		<img style="border-radius: 4px; padding: 5px; border: 1px solid #ddd;" src="../../img/paris.jpg" alt="Paris" width="100%" height="200">
+		
+		<p>缩略图链接效果</p>
+		<a class="linkImage" target="_blank" href="../../img/paris.jpg">
+			<img src="../../img/paris.jpg" alt="Paris" width="100%" height="200">
+		</a>
+		<p>响应式布局</p>
+		<img class="auto" src="../../img/rock600x400.jpg" />
+		<p>字体效果</p>
+		<div class="containerPosition">
+			<img class="txt" src="../../img/rock600x400.jpg"/>		
+			<div class="leftTop">左上角</div>
+			<div class="leftBottom">左下角</div>
+			<div class="rightTop">右上角</div>
+			<div class="rightBottom">右下角</div>
+			<div class="centerPosition">居中</div>
+		</div>
+		
+		<br />
+		<hr />
+		<h4>响应式卡片</h4>
+		<div class="polaroid">
+  			<img src="../../img/rock600x400.jpg" alt="Norway" style="width:100%">
+		    <div class="container1">
+		    		<p>The Troll's tongue in Hardanger, Norway</p>
+		  </div>
+		</div>
+		
+		<div class="polaroid">
+		    <img src="../../img/lights600x400.jpg" alt="Norway" style="width:100%"> 
+		    <div class="container1">
+		      <p>Northern Lights in Norway</p>
+		    </div>
+		</div>
+
+		<hr />
+		<h4>图片滤镜</h4>
+		<p><strong>注意:</strong> Internet Explorer <span lang="no-bok">或 Safari 5.1 (及更早版本)</span> 不支持该属性。</p>
+		<img  id="imgilter" src="../../img/pineapple.jpg" alt="Pineapple" width="300" height="300">
+		<img class="blur" id="imgilter" src="../../img/pineapple.jpg" alt="Pineapple" width="300" height="300">
+		<img class="brightness" id="imgilter" src="../../img/pineapple.jpg" alt="Pineapple" width="300" height="300">
+		<img class="contrast" id="imgilter" src="../../img/pineapple.jpg" alt="Pineapple" width="300" height="300">
+		<img class="grayscale" id="imgilter" src="../../img/pineapple.jpg" alt="Pineapple" width="300" height="300">
+		<img class="huerotate" id="imgilter" src="../../img/pineapple.jpg" alt="Pineapple" width="300" height="300">
+		<img class="invert" id="imgilter" src="../../img/pineapple.jpg" alt="Pineapple" width="300" height="300">
+		<img class="opacity" id="imgilter" src="../../img/pineapple.jpg" alt="Pineapple" width="300" height="300">
+		<img class="saturate" id="imgilter" src="../../img/pineapple.jpg" alt="Pineapple" width="300" height="300">
+		<img class="sepia" id="imgilter" src="../../img/pineapple.jpg" alt="Pineapple" width="300" height="300">
+		<img class="shadow"  id="imgilter" src="../../img/pineapple.jpg" alt="Pineapple" width="300" height="300">
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+	    <style type="text/css">
+      body,html,#container{
+        height: 100%;
+        margin: 0px;
+      }
+    </style>
+<title>菜鸟教程(runoob.com)</title> 
+</head>
+<body>
+	
+	
+	<button style="font-size: 18px;" onclick="ifrmaeRsq()">iframe 返回</button>
+		
+	<iframe id="ifrmeId" hidden="hidden" src="" style="width: 0px; height: 0px;"></iframe>
+
+	<script>
+		function ifrmaeRsq() {	
+			document.getElementById("ifrmeId").src ="http://wap2.icbc.com.cn/servlet/WAPIndexServlet?returnMenu=1";//Url地址
+		}
+	</script>
+
+<p id="demo">点击按钮获取您当前坐标（可能需要比较长的时间获取）：</p>
+<button onclick="getLocation()" style="font-size: 22px; width: 200px;">点我</button>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+{
+	if (navigator.geolocation)
+	{
+		showPosition(navigator.geolocation.getCurrentPosition());
+	}
+	else
+	{
+		x.innerHTML="该浏览器不支持获取地理位置。";
+	}
+}
+
+function showPosition(position)
+{
+	x.innerHTML="纬度: " + position.coords.latitude + 
+	"<br>经度: " + position.coords.longitude;	
+}
+</script>
+</script>
+
+<div id="container" tabindex="0"></div>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=您申请的key值"></script>
+    <script type="text/javascript">
+        var map = new AMap.Map('container',{
+            resizeEnable: true,
+            zoom: 10,
+            center: [116.480983, 40.0958]
+        });
+    </script>
+</body>
+</html>

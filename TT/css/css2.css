@@ -1,0 +1,32 @@
+#line {
+	color: orange;
+	font-size: 16px;
+}
+
+/*
+body {
+	background: #cccccc;
+	background-image: url(../img/psb5.jpg);
+	background-repeat: repeat-y;
+	background-attachment: scroll;
+	background-position: bottom right;
+}*/
+
+/** 简写，属性值的顺序为: background-color，background-image，background-repeat，background-attachment，background-position
+ */
+
+body {
+	background: #ffffff url(../img/psb5.jpg) no-repeat scroll right top;
+}
+
+p.just {
+	text-align: justify;
+	color: white;
+	background: olivedrab;
+	font-size: 14px;
+}
+
+h5 {
+	background: oldlace;
+	font-family: "times new roman";
+}

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+		<title>分页</title>
+		<style>
+			ul.pagination {
+				display: inline-block;
+				margin: 0px;
+				padding: 0px;
+			}
+			ul.pagination li {
+				display: inline
+			}
+			ul.pagination li a {
+				color: black;
+				text-decoration: none;
+				padding: 8px 16px;
+				float: left;
+				transition: background-color .3s;
+				border: 1px solid #DDDDDD;
+			}
+			
+			ul.pagination li a.active {
+				background-color: #4CAF50;
+   				color: white;
+   				border-radius: 4px;
+			}
+			ul.pagination li a:hover:not(.active) {
+				background: #ECECEC;
+				border-radius: 4px;
+			}
+			
+			ul.pagination li:first-child a {
+				/*border-top-left-radius: 5px;
+				border-bottom-left-radius: 5px;*/
+				border-radius: 5px 0px 0px 5px;
+			}
+			ul.pagination li:last-child a {
+				border-top-right-radius: 5px;
+				border-bottom-right-radius: 5px;
+			}
+			
+			div.center {
+				text-align: center;
+			}
+			
+			/*面包屑导航*/
+			ul.breadcrumb {
+				padding: 8px 16px;
+				background-color: #eee;
+			}
+			ul.breadcrumb li {
+				display: inline;
+			}
+			ul.breadcrumb li a {
+				color: green;
+				text-decoration: none;
+			}
+			ul.breadcrumb li+li:before {
+				padding: 8px;
+				color: black;
+   				content: "/\00a0";
+			}
+			
+			/*框大小*/
+			div.box {
+				/*box-sizing: border-box;*/
+				width: 40%;
+				border: 1px solid #008CBA;
+				float: left;
+				height: 100px;
+				text-align: center;
+				line-height: 100px;
+				font-size: .9rem;
+			}
+			
+			div.boxSize {	
+				box-sizing: border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<h4>pagination</h4>
+		<div class="center">
+			<ul class="pagination">
+				<li><a href=""><<</a></li>
+				<li><a href="">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="" class="active">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="">6</a></li>
+				<li><a href="">7</a></li>
+				<li><a href="">>></a></li>
+			</ul>
+		</div>
+		
+		<br />
+		<ul class="pagination">
+			<li><a><</a></li>
+			<li><a>></a></li>
+		</ul>
+		
+		<br />
+		<br />
+		<ul class="pagination">
+			<li><a href="#" class="active">Home</a></li>
+			<li><a href="#">Link 1</a></li>
+			<li><a href="#">Link 2</a></li>
+ 			<li><a href="#">Link 3</a></li>
+		</ul>
+		
+		<br />
+		<ul class="breadcrumb">
+		    <li><a href="#">首页 </a></li>
+		    <li><a href="#">前端 </a></li>
+		    <li><a href="#">HTML 教程 </a></li>
+		    <li>HTML 段落</li>
+		</ul>
+		
+		
+		<hr />
+		<h4>框大小</h4>
+		<p>CSS3 box-sizing 属性可以设置 width 和 height 属性中包含了 padding(内边距) 和 border(边框)。- 不限制margin</p>
+		
+		<div class="center">
+			<div class="box">两个div宽高一致</div>
+			<div class="box" style="padding: 20px; margin: 10px;">两个div宽高一致</div>
+		</div>
+		<br />
+		
+		<div class="center">
+			<div class="box boxSize">两个div宽高一致</div>
+			<div class="box boxSize" style="padding: 20px; margin: 10px;">两个div宽高一致</div>
+		</div>
+	</body>
+</html>

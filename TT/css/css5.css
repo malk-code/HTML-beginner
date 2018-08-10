@@ -1,0 +1,70 @@
+#cusDiv {
+	background: yellowgreen;
+}
+
+#soonDiv p {
+	background: olivedrab;
+}
+
+#childDiv > p {
+	background: orange;
+}
+
+#siblingDiv + p {
+	background: orchid;
+}
+
+#followDiv ~ p {
+	background: red;
+}
+
+a.cus {
+	a:link {color:#000000;}      /* 未访问链接*/
+	a:visited {color:#00FF00;}  /* 已访问链接 */
+	a:hover {color:#FF00FF;}  /* 鼠标移动到链接上 */
+	a:active {color:#0000FF;}  /* 鼠标点击时 */
+}
+
+/*伪类*/
+
+/*匹配第一个元素*/
+article:first-child
+{
+	color:blue;
+	background: chartreuse;
+}
+/*匹配所有父元素中的第一个元素*/
+article:first-child i:first-child {
+	color:red;
+} 
+
+/*匹配所有作为第一个子元素中的所有指定元素*/
+h6 > span:first-child {
+	background: red;
+}
+
+/*:lang 伪类使你有能力为不同的语言定义特殊的规则*/
+q:lang(no) {
+	quotes: "~" "~";
+}
+
+input:focus {
+	background: yellow;
+}
+
+/*CSS 伪元素*/
+
+/*CSS伪元素是用来添加一些选择器的特殊效果。*/
+
+div > p:first-line {
+	color: white;
+}
+
+h6:before {
+	content: url(../img/WX20180206-143741.png);
+	display: block;
+}
+h6:after {
+	content: url(../img/WX20180206-143741.png);
+	display: block;
+}

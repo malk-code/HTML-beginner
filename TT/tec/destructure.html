@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>destructure</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+	</head>
+
+	<body>
+		<!--
+		23. destructure
+		    1. ES2015为JavaScript带来的另一个新的语法：解构赋值。解构赋值(Destructuring assignment), 是用来让我们从数组或者对象中提取数据赋值给不同的变量。- 取需要的
+		    2. 解构赋值操作不会抛错(Fail-soft)，如果没有找到，将会用undefined赋值过去。解构可设置默认值 let [a = 1] = []; // a = 1；使用和为方法设置初始值一样。
+		    3. 解构对象赋值给不同变量的名字，var { a:bar, b:foo } = {	 a: 'a to bar', b: "b to foo", }; ，注意，这样一来，真正初始化并赋值的是foo 和 bar
+		    4. 方法的入参使用解构：function draw({ color, using = '粉笔' }) { return ('使用' + color + '的' + using + '画画!'); };  alert(draw({color: '红色', other: "会被忽略"}));  - 解构需要的参数
+   	 	-->
+		<button onclick="tuple(0)">从数组中解构赋值</button><br />
+		<button onclick="tuple(1)">从对象中解构赋值</button><br />
+		<button onclick="tuple(2)">解构对象修改变量</button><br />
+		<button onclick="tuple(3)">解构可设置默认值</button><br />
+		<button onclick="tuple(4)">解构用于函数参数</button><br />
+
+		<script>
+			if(window.foo || (window.foo = "bar")) {
+				console.log(window.foo);
+			}
+		</script>
+
+		<script>
+			function tuple(type) {
+				switch(type) {
+					case 0:
+						var [a, b] = [1, 11, 2];
+						alert(`a = ${a}, b = ${b}`);
+						break;
+					case 1:
+						var {
+							a,
+							c,
+						} = {
+							a: 11,
+							b: 22,
+							c: 1111,
+						};
+						alert(`a = ${a}, c = ${c}`);
+						break;
+					case 2:
+						var {
+							a: bar,
+							b: foo
+						} = {
+							a: 'a to bar',
+							b: "b to foo",
+						};
+						alert(`bar = ${bar}, foo = ${foo}`);
+						break;
+					case 3:
+						var [a, b, c = 100] = [1, 11];
+						alert(`a = ${a}, b = ${b}, c = ${c}`);
+						break;
+					case 4:
+						function draw({
+							color,
+							using = '粉笔'
+						}) {
+							return('使用' + color + '的' + using + '画画!');
+						};
+						alert(draw({
+							color: '红色',
+							other: "会被忽略"
+						}));
+						break;
+					default:
+						break;
+				}
+			}
+		</script>
+	</body>
+
+</html>

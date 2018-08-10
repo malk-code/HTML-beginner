@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>css3</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<style>
+		div {
+			padding: 20px;
+			width: 300px;
+			height: 150px;
+			margin-top: 20px;
+			border-radius: 25px;
+
+			text-align: center;
+			line-height: 150px;
+			margin-left: 20px;
+		}
+
+		#radius1 {
+			background: #00FFFF;
+		}
+
+		#radius2 {
+			border: 2px solid #8AC007;
+		}
+
+		#radius3 {
+			background: url(../../img/paper.gif);
+			background-position: left top;
+			background-repeat: repeat;
+		}
+
+		#radius4 {
+			border: 2px solid #1496BB;
+			border-bottom-left-radius: 0px;
+			border-bottom-right-radius: 0px;
+		}
+
+		#backsize1 {
+			background-image: url(../../img/471523607929_.pic_thumb.jpg);
+			background-size: 80px 60px;
+			background-repeat: no-repeat;
+			border: 2px solid #8AC007;
+			/*第一个center是水平居中，第二个center是上下居中*/
+			background-position: center;
+			line-height: 244px;
+		}
+
+		#backsize2 {
+			background: url(../../img/img_flwr.gif);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			line-height: 100%;
+			text-align: justify;
+			background-origin: padding-box;
+			height: 210px;
+		}
+
+		#backsize3 {
+			background: url(../../img/scan_button.png);
+			background-repeat: no-repeat;
+			height: 70px;
+			line-height: 100%;
+			text-align: justify;
+			background-position: left;
+			border: 1px solid black;
+			padding: 50px;
+			width: 230px;
+			background-origin: border-box;
+			/*background-origin:content-box;*/
+		}
+
+		#backsize4 {
+			background-image: url(../../img/img_flwr.gif), url(../../img/paper.gif);
+			background-position: right bottom, left top;
+			background-repeat: no-repeat, repeat;
+			padding: 15px;
+			line-height: 100%;
+			height: 200px;
+			text-align: justify;
+		}
+
+		#backclip1 {
+			border: 2px dotted black;
+			padding: 5px;
+			background: yellow;
+			background-clip: padding-box;
+		}
+
+		#backclip2 {
+			border: 2px dotted black;
+			padding: 5px;
+			background: yellow;
+			background-clip: content-box;
+			margin: 20px;
+		}
+
+		#backclip3 {
+			border: 2px dotted black;
+			padding: 5px;
+			background: yellow;
+		}
+	</style>
+</head>
+
+<body>
+	<h4>Raduis</h4>
+	<div id="radius1">背景</div>
+	<div id="radius2">镂空</div>
+	<div id="radius3">图片</div>
+	<div id="radius4">圆角</div>
+
+	<br />
+	<hr />
+	<h4>background-size</h4>
+	<div id="backsize1">宾利</div>
+	<div id="backsize2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+		aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip
+		ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+		dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril
+		delenit augue duis dolore te feugait nulla facilisi.</div>
+	<div id="backsize3">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+		aliquam erat volutpat..</div>
+	<div id="backsize4">
+		<h1>Lorem Ipsum Dolor</h1>
+		<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+			aliquam erat volutpat.</p>
+		<p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
+	</div>
+
+	<br />
+	<hr />
+	<h4>background-clip</h4>
+	<article id="backclip1">
+		<h3>Lorem Ipsum Dolor</h3>
+		<p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+				aliquam erat volutpat.</p>
+		</p>
+	</article>
+	<article id="backclip2">
+		<h3>Lorem Ipsum Dolor</h3>
+		<p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+				aliquam erat volutpat.</p>
+		</p>
+	</article>
+	<article id="backclip3">
+		<h3>Lorem Ipsum Dolor</h3>
+		<p>
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna
+				aliquam erat volutpat.</p>
+		</p>
+	</article>
+	<br />
+	<hr />
+	<div></div>
+</body>
+
+</html>

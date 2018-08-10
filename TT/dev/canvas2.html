@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id="myCanvas1" width="200" height="100" style="border: 1px solid #3c3c3c;"></canvas>
+		
+		<script type="text/javascript">
+			var c = document.getElementById("myCanvas1")
+			var x = c.getContext("2d")
+			x.font = "30px Arial"
+			x.fillText("Hello Word", 10, 50)
+		</script>
+		
+		<canvas id="myCanvas2" width="200" height="100" style="border: 1px solid #3c3c3c;"></canvas>
+
+		<script type="text/javascript">
+			var c = document.getElementById("myCanvas2")
+			var x = c.getContext("2d")
+			x.font = "30px Arial"
+			x.strokeText("Hello Word", 10, 50)
+		</script>
+		
+		<canvas id="myCanvas3" width="200" height="100" style="border: 1px solid #3c3c3c;"></canvas>
+		
+		<script type="text/javascript">
+			var c = document.getElementById("myCanvas3")
+			var x = c.getContext("2d")
+			
+			// Create gradient
+			var g = x.createLinearGradient(0, 0, 200, 0)
+
+			g.addColorStop(0, "red")
+			g.addColorStop(1, "white")
+			
+			// Fill with gradient
+			x.fillStyle = g;
+			x.fillRect(10, 10, 180, 80)
+			
+		</script>
+		
+		<canvas id="myCanvas4" width="200" height="100" style="border: 1px solid #3c3c3c;"></canvas>
+		
+		<script type="text/javascript">
+			var c = document.getElementById("myCanvas4")
+			var x = c.getContext("2d")
+			
+			// Create gradient
+			var g = x.createRadialGradient(75,50,5,90,60,100);
+
+			g.addColorStop(0, "red")
+			g.addColorStop(1, "white")
+			
+			// Fill with gradient
+			x.fillStyle = g;
+			x.fillRect(10, 10, 180, 80)
+			
+		</script>
+		
+
+		
+		
+	</body>
+</html>

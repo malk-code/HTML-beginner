@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单</title>
+		<style>
+			/*约束验证 CSS 伪类选择器*/
+			:required {
+				background: orange;
+			}
+		</style>
+	</head>
+	<body>
+		<script>
+			function validateForm() {
+			    var x = document.forms["myForm"]["fname"].value;
+			    if (x.length == 0) {
+			        alert("需要输入名字。");
+			        return false;
+			    }
+			}
+			
+			function validateForm2() {
+				var x=document.forms["myForm2"]["fname2"].value;
+				var atpos=x.indexOf("@");
+				var dotpos=x.lastIndexOf(".");
+				if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length){
+					alert("不是一个有效的 e-mail 地址");
+			  		return false;
+				}
+			}
+		</script>
+			
+		<form name="myForm" action="http://www.runoob.com/try/demo_source/demo_form.php" onsubmit="return validateForm()" method="post">		
+			名字: <input type="text" name="fname" pattern="[0-9]">
+			<input type="submit" value="提交">
+		</form>
+		
+		<form name="myForm1" action="http://www.runoob.com/try/demo_source/demo_form.php" method="post">		
+			名字: <input type="text" name="fname1" required="required">
+			<input type="submit" value="提交">
+		</form>
+		
+		<form name="myForm2" action="http://www.runoob.com/try/demo_source/demo_form.php" onsubmit="return validateForm2()" method="post">		
+			名字: <input type="text" name="fname2">
+			<input type="submit" value="提交"/>
+		</form>
+		
+		<hr />
+		
+		<input type="number" max="100" min="10" style="width: 100px;" required="required" id="inp11"/>
+		<button onclick="inp1()">Verify</button><br />
+		<span id="inp1">Format</span> 
+
+		<script>
+			function inp1() {
+				var inpObj = document.getElementById("inp11");
+				var txt = "";
+				
+//				inpObj.setCustomValidity("error");
+				
+			    if (inpObj.checkValidity() == false) {
+			        txt = inpObj.validationMessage;
+			    } else {
+			        txt = "输入正确";
+			    }
+			    	document.getElementById("inp1").innerHTML = txt;
+			}
+		</script>
+		<h4>为 JSON 字符串创建对象</h4>
+		<p id="demo1">1</p>
+		<p id="demo2">2</p>
+		<script>
+			var text = '{ "sites" : [' +
+				'{ "name":"Runoob" , "url":"www.runoob.com" },' +
+				'{ "name":"Google" , "url":"www.google.com" },' +
+				'{ "name":"Taobao" , "url":"www.taobao.com" } ]}';
+				
+		 	var obj = JSON.parse(text);
+			document.getElementById("demo1").innerHTML = obj.sites[0].name + " " + obj.sites[1].url;
+			
+			document.getElementById("demo2").innerHTML = JSON.stringify(obj);
+		</script>
+
+		<!--54.JavaScript 函数可以通过一个表达式定义。此时函数实际上是一个 匿名函数 (函数没有名称)。函数存储在变量中，不需要函数名称，通常通过变量名来调用。-->
+		<button id="fun1" onclick="fun1()">匿名函数</button><br />
+		<span id="demo3">函数可以自动调用</span><br /><br />
+
+		<script>
+			function fun1() {
+				var fun = function() {
+					return 100;
+				}
+				document.getElementById('fun1').innerHTML = fun();
+			}
+			
+			(function () {
+			    document.getElementById("demo3").innerHTML = "Hello! 我是自己调用的";
+			})();
+		</script>
+
+		<span> arguments.length 属性返回函数接收到参数的个数：</span>
+		<span id="demo4"></span><br /><br />
+		
+		<script>
+			function myFunction(a, b) {
+			    return arguments.length;
+			}
+			document.getElementById("demo4").innerHTML = myFunction(4, 3);
+		</script>
+		
+		<span>查找最大的数。</span>
+		<span id="demo7"></span><br /><br />
+		<script>
+			x = findMax(1, 123, 500, 115, 44, 88);
+		 
+			function findMax() {
+			    var i, max = arguments[0];
+			    // JavaScript 函数有个内置的对象 arguments 对象。
+			    if(arguments.length < 2) return max;
+			 
+			    for (i = 0; i < arguments.length; i++) {
+			        if (arguments[i] > max) {
+			            max = arguments[i];
+			        }
+			    }
+			    return max;
+			}
+			document.getElementById("demo7").innerHTML = x;
+		</script>
+
+		
+		
+		<a href="javascript:void(0);">点我没有反应的!</a><br />  <!--但代码是执行的-->
+		<a href="javascript:void(alert('warming'))">点击弹出警告框。</a><br />
+		
+		<!--53.# 包含了一个位置信息，默认的锚是#top 也就是网页的上端。而javascript:void(0), 仅仅表示一个死链接。在页面很长的时候会使用 # 来定位页面的具体位置，格式为：# + id。-->
+		<a href="#pos">点我定位到指定位置!</a>
+		<br>
+		...
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<p id="pos">尾部定位点</p> 
+		
+	</body>
+</html>
