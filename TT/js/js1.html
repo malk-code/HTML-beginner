@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<title>js</title>
 	</head>
+
 	<body>
 		<script type="text/javascript">
 			var txt = "Hello Word!";
 			document.write(txt);
 		</script>
-		
+
 		<noscript>抱歉，你的浏览器不支持 JavaScript!</noscript>
 		<p>不支持 JavaScript 的浏览器会使用 &lt;noscript&gt; 元素中定义的内容（文本）来替代。</p><br />
-		
+
 		<hr>
-		
+
 		<p>
 
-JavaScript 能够直接写入 HTML 输出流中：
+			JavaScript 能够直接写入 HTML 输出流中：
 
-</p>
+		</p>
 
-<script>
+		<script>
+			document.write("<h1>这是一个标题</h1>");
 
-document.write("<h1>这是一个标题</h1>");
+			document.write("<p>这是一个段落。</p>");
+		</script>
 
-document.write("<p>这是一个段落。</p>");
+		<p>
 
-</script>
+			您只能在 HTML 输出流中使用 <strong>document.write</strong>。 如果您在文档已加载后使用它（比如在函数中），会覆盖整个文档。
 
-<p>
+		</p>
 
-您只能在 HTML 输出流中使用 <strong>document.write</strong>。
+		<script type="text/javascript">
+			document.write("--")
+		</script>
 
-如果您在文档已加载后使用它（比如在函数中），会覆盖整个文档。
-
-</p>
-
-<script type="text/javascript">
-	document.write("--")
-</script>
-
-<h1> python </h1>
-
+		<h1> python </h1> // ai
+		<script type="text/javascript">
+			
+		</script>
 	</body>
+
 </html>
