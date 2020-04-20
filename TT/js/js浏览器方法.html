@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>js对象</title>
+  </head>
+  <body>
+    <p>Math</p>
+    <button
+      onclick="document.getElementById('btnId1').innerHTML = Math.PI"
+      id="btnId1"
+    >
+      PI
+    </button>
+    <button
+      onclick="document.getElementById('btnId2').innerHTML = Math.E"
+      id="btnId2"
+    >
+      E
+    </button>
+
+    <button
+      onclick="document.getElementById('btnId3').innerHTML = Math.random()"
+      id="btnId3"
+    >
+      random 0-1
+    </button>
+    <button
+      onclick="document.getElementById('btnId4').innerHTML = Math.round(4.7)"
+      id="btnId4"
+    >
+      round 4.7
+    </button>
+
+    <button
+      onclick="document.getElementById('btnId5').innerHTML = Math.floor(Math.random()*11)"
+      id="btnId5"
+    >
+      random 0-11
+    </button>
+
+    <hr />
+    <p>window</p>
+
+    <h6 style="display: inline;">pc端有效:</h6>
+    <br /><br />
+    <button onclick="openNewWindow()">openNewWindow</button>
+    <button onclick="moveWindow()">moveWindow</button>
+    <button onclick="myWindow.close()">closeWindow</button>
+    <button onclick="myWindow.resizeTo(500,500)">resizeWindow</button>
+
+    <script>
+      var myWindow
+
+      function openNewWindow() {
+        myWindow = window.open('', '', 'width=200,height=100')
+      }
+
+      var mar = 100
+      function moveWindow() {
+        mar += 100
+        myWindow.moveTo(mar, mar)
+      }
+    </script>
+
+    <p id="demo"></p>
+    <script>
+      var w =
+        window.innerWidth ||
+        document.documentElement.clientWidth ||
+        document.body.clientWidth
+      var h =
+        window.innerHeight ||
+        document.documentElement.clientHeight ||
+        document.body.clientHeight
+
+      x = document.getElementById('demo')
+      x.innerHTML = '浏览器window宽度: ' + w + ', 高度: ' + h + '。'
+    </script>
+
+    <h6 style="display: inline;">screen:</h6>
+    <br /><br />
+    <script>
+      document.write('总宽度/高度: ')
+      document.write(screen.width + '*' + screen.height)
+      document.write('<br/>')
+      document.write('可用宽度/高度: ')
+      document.write(screen.availWidth + '*' + screen.availHeight)
+      document.write('<br/>')
+      document.write('色彩深度: ')
+      document.write(screen.colorDepth)
+      document.write('<br/>')
+      document.write('色彩分辨率: ')
+      document.write(screen.pixelDepth)
+    </script>
+
+    <hr />
+    <h6 style="display: inline;">location:</h6>
+    <br /><br />
+    <script>
+      document.write(location.href)
+    </script>
+
+    <br /><br />
+    <button
+      onclick="location.assign('http://www.runoob.com/js/js-window-location.html')"
+    >
+      方法加载新的文档
+    </button>
+
+    <br /><br />
+    <h6 style="display: inline;">History:</h6>
+    <br /><br />
+    <button onclick="window.history.back()">back</button>
+    <button onclick="window.history.forward()">forward</button>
+
+    <button onclick="window.location.reload()">reload</button>
+
+    <hr />
+    <div id="example"></div>
+    <script>
+      txt = '<p>浏览器代号: ' + navigator.appCodeName + '</p>'
+      txt += '<p>浏览器名称: ' + navigator.appName + '</p>'
+      txt += '<p>浏览器版本: ' + navigator.appVersion + '</p>'
+      txt += '<p>启用Cookies: ' + navigator.cookieEnabled + '</p>'
+      txt += '<p>硬件平台: ' + navigator.platform + '</p>'
+      txt += '<p>用户代理: ' + navigator.userAgent + '</p>'
+      txt += '<p>用户代理语言: ' + navigator.systemLanguage + '</p>'
+      document.getElementById('example').innerHTML = txt
+    </script>
+  </body>
+</html>
